@@ -2,8 +2,9 @@ resource "ssh_resource" "install_k3s" {
   for_each = local.servers
   host     = each.value.host
   user     = each.value.user
+  # agent    = true
   commands = [
-    "curl -sfL ${local.k3s.download_url} | INSTALL_K3S_VERSION='${local.k3s.version}' bash --write-kubeconfig-mode 644"
+    "curl -sfL ${local.k3s.download_url} | INSTALL_K3S_VERSION='${local.k3s.version}' sh -s - --write-kubeconfig-mode 644"
     # TODO: For HA k3s cluster setup
     # "curl -sfL ${local.k3s.download_url} | INSTALL_K3S_VERSION='${local.k3s.version}' sh -s - server --cluster-init --docker --write-kubeconfig-mode 644 --disable=traefik"
   ]
@@ -18,6 +19,7 @@ resource "ssh_resource" "uninstall_k3s" {
   host        = each.value.host
   when        = "destroy"
   user        = each.value.user
-  commands    = ["bash -c 'k3s-killall.sh; k3s-uninstall.sh;'"]
+  # agent       = true
+  commands    = ["bash -c '/usr/local/bin/k3s-killall.sh; /usr/local/bin/k3s-uninstall.sh;'"]
   private_key = file(each.value.private_key)
 }

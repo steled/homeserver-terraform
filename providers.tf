@@ -12,15 +12,15 @@ terraform {
     #   version = "0.9.1"
     # }
 
-    # remote = {
-    #   source  = "tenstad/remote"
-    #   version = "0.1.1"
-    # }
+    remote = {
+      source  = "tenstad/remote"
+      version = "0.1.2"
+    }
   }
 
-  backend "http" { }
+  # backend "http" { }
 }
 
 provider "ssh" {}
 # provider "time" {}
-# provider "remote" {}
+provider "remote" {}
