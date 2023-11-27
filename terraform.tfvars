@@ -1,6 +1,6 @@
 servers = [
     {
-        host = "172.21.92.208"
+        host = "127.0.0.1"
         private_key = "~/.ssh/id_rsa"
         user = "steled"
     }
