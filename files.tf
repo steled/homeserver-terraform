@@ -1,7 +1,6 @@
 resource "ssh_resource" "files" {
-  for_each = local.servers
-  host     = each.value.host
-  user     = each.value.user
+  host     = var.server.host
+  user     = var.server.user
   # agent    = true
 
   file {
@@ -12,19 +11,19 @@ resource "ssh_resource" "files" {
     group       = "steled"
   }
 
-  file {
-    source = "files/preparation.sh"
-    destination = "/tmp/preparation.sh"
-    permissions = "0755"
-    owner       = "steled"
-    group       = "steled"
-  }
+  # file {
+  #   source      = "files/preparation.sh"
+  #   destination = "/tmp/preparation.sh"
+  #   permissions = "0755"
+  #   owner       = "steled"
+  #   group       = "steled"
+  # }
 
   commands = [ 
     "crontab /tmp/steled-crontab",
     "/tmp/preparation.sh"
   ]
 
-  private_key = file(each.value.private_key)
+  private_key = file(var.server.private_key)
   timeout = "10m"
 }
