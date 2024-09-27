@@ -1,7 +1,5 @@
-servers = [
-    {
-        host = "127.0.0.1"
-        private_key = "~/.ssh/id_rsa"
-        user = "steled"
-    }
-]
+server = {
+  host        = "172.28.155.246"
+  user        = "steled"
+  private_key = "~/.ssh/steled.id_rsa"
+}
