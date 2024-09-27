@@ -34,4 +34,7 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+# Ignore lock.hcl file
+.terraform.lock.hcl
+
 ####
