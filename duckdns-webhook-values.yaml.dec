@@ -1,0 +1,23 @@
+groupName: <REDACTED>
+
+certManager:
+  namespace: certmanager
+  serviceAccountName: certmanager-cert-manager
+
+duckdns:
+  token: "<REDACTED>"
+
+clusterIssuer:
+  email: "<REDACTED>"
+  production:
+    create: true
+  staging:
+    create: true
+
+service:
+  type: LoadBalancer
+  # loadBalancerIP: 172.16.4.31
+  # loadBalancerIP: 172.24.3.31
+
+image:
+  repository: steled/cert-manager-webhook-duckdns
