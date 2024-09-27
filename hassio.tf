@@ -1,10 +1,6 @@
-module "hassio" {
-  source = "git@github.com:steled/terraformmodules.git//hassio?ref=modules"
-
-  namespace = "hassio"
-  host      = "h4s5.5p4c3.duckdns.org"
-  # ip        = "172.16.3.20"
-  ip        = "172.28.155.20"
-
-  # depends_on = [ ssh_resource.install_k3s ]
-}
+U2FsdGVkX1/3hdzHJElQ7KZUwAiB4kdZDTrlw1kN0ZHmbQ3q1UQ+LgbFMQpcldSx
+K/FVOIYCEOsWDWfG7VSr52qkJllRezNOT+E8aS0rqhjQKtk+9VtxkpvqSoH/Mab8
+5kvwGWNt1Nb8xa8Ixpswri/0pA3PBpItEi/Y0IuCz6xwfh4hA2O8VMvvBCgPmM1C
+SYnkce5dGnoWvlqvtekqxrfn8R6Z+BmKppVvRhiVOoDzZcPkEohoCACCOZ/cyd8r
+42V/XCwSrrTgzlPtA2Vc9Qpy8T00m8d9LmNprSkpX1VGI6pWbrkWFQBATGE+gP9F
+s+4yZSewQTds1YHml7hbAEd7OOK7zqWcSW4VM1pU03fMyD95IqouC6Xz3F4JLIG1

@@ -1,15 +1,10 @@
-module "jdownloader" {
-  source="git@github.com:steled/terraformmodules.git//jdownloader?ref=modules"
-  # source = "../terraformmodules/jdownloader/"
-
-  ssh_user          = var.server.user
-  ssh_host          = var.server.host
-
-  namespace         = "jd-sftp"
-  env_JD_DEVICENAME = "k8s"
-  env_JD_EMAIL      = "jbo1@gmx.de"
-  env_JD_PASSWORD   = "Sneaker1"
-  sftp_values_yaml  = "sftp-values.yaml"
-
-  # depends_on = [ ssh_resource.install_k3s ]
-}
+U2FsdGVkX1+w6QBcE797Ygk2h5WSIUuY7PuCiOlkBKEvuub2Z5EublPJbYJfCN0c
+7xGRl4/trqGyp7F06rwwJXOIh0zI99mPh4bWRVy9XC/wRid9wdfcg96SVoL6vTsO
+AGbIDSELVehZfBe01NnXaYb1RsjdSydclIq2Q737H/jE6PtDmXHOiS4pGYPuhmsK
+KN3JxhJauhPBl8UYEGBMcLAT2g4QpDIWLznMx1IEQypsBdG7SN945C4iBLmF672N
+ZM29WHa43d0XMhuryOfVScLghT7+Wi5P1/v/V724R8SUbDXXsFsb6GrK3Ve+J0JS
+v/stMW5pE20LdrSKj1TbOIXNN7wNmCwLSa7fRo9hHXiUV5hfsKZzhBlavonEsxNI
+8wWVL5mF1W4nBO2LEan91KsVFen5wu24boldTxZM5LWT/BXuXBF6OP7NedLh2a4Y
+bvEHQJsinCp9lY5QzvCZ2b2JgLLKCbBEVhiBANSP1wIy65kP8kyHluz2jLUn30LB
+Kd+tj2a3y6d3Fmsrs+fQdeaEVxFyxas1rKWXMqt2nydGzEZftcw5BT8UeYt1hRWS
+nOT3SVCwOL15S7x8/AdZfZGl9QCsjEq9U/Mi/S3u+es=

@@ -1,23 +1,10 @@
-groupName: 5p4c3.duckdns.org
-
-certManager:
-  namespace: certmanager
-  serviceAccountName: certmanager-cert-manager
-
-duckdns:
-  token: "cf88b051-7880-455a-829f-40f6235991e7"
-
-clusterIssuer:
-  email: "sleddin@gmx.net"
-  production:
-    create: true
-  staging:
-    create: true
-
-service:
-  type: LoadBalancer
-  # loadBalancerIP: 172.16.4.31
-  # loadBalancerIP: 172.24.3.31
-
-image:
-  repository: steled/cert-manager-webhook-duckdns
+U2FsdGVkX1/qdqKsGWaAsJ2Q3IBmHH/be0DzSb30CORWb3jefBRRS5w6lzIsqndB
+w7AtTu5hN115jxh9xf6BZzxgM1lzaIaqZr29AF0hJeqZjNBafLyZ2GEO4ZIxloQJ
+KFv1eqcSM03Z1hIeZuY1xbqz4+jUl/fepRaKHaZgbVDDemD4/wHGKxnNk0AxrwzA
+EZa7SPw6SAknXcYrWywHLQTz7XwweQlaQNYym4VUUX+3zG5n+Yb9OlV38C/ENgbH
+pNO2+P4orM3JOt1605uWzocTFw3IZkWtK25yWC2gO+/J1FVUnKOvBkL32OxqkvCY
+Kl5FTWO7halSwMmtcLUJJsOtg7vtMs/o1PpQYv8s2hzCTTadjoiTj+6vkhVLMKrq
+lQXoFnf8+v8phpK+XKkdWGzi+KBXwVrmGuxPHS/pBo18Wj+8fQwSOBBrhB7mbjnK
++By/DU6nsj5NTbQA2LQ6wfJfKRoHEniWZsDEE4BkKt7kNufbkgZbHJGAR2KFGa/1
+ur9plHC+SIMJOGNuTd2qsEhxiwDtijXyGcZ3hPoDSlYGMfcbye0LNfJ6FpZJYjdO
+C3LfSvQyGFtE/NSxnNIJtg==

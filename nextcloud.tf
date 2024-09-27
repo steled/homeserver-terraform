@@ -1,27 +1,25 @@
-module "nextcloud" {
-  source="git@github.com:steled/terraformmodules.git//nextcloud?ref=modules"
-  # source = "../terraformmodules/nextcloud/"
-
-  ssh_user                      = var.server.user
-  ssh_host                      = var.server.host
-
-  nextcloud_version             = "3.5.13"
-  kubernetes_namespace_name     = "nextcloud"
-  nextcloud_domain              = "n3x7.5p4c3.duckdns.org"
-  environment                   = "production"
-  # ip_address                    = "172.24.45.2"
-  ip_address                    = "172.28.155.2"
-  nextcloud_admin_username      = "admin"
-  nextcloud_admin_password      = "0R3Zus!fBbLPJhEwXRYhO"
-  # nextcloud_proxies             = "172.16.4.30"
-  nextcloud_proxies             = "172.28.155.30"
-  mail_fromaddress              = "n3x7-info"
-  mail_domain                   = "gmx.net"
-  smtp_host                     = "mail.gmx.net"
-  smtp_port                     = "587"
-  smtp_username                 = "n3x7-info@gmx.net"
-  smtp_password                 = "KCF2I6WGVDVOSW35F2WZ"
-  postgresql_postgresqlusername = "nextcloud"
-  postgresql_postgresqlpassword = "OCn5Zyg5VRJZwwuWrwKt"
-  postgresql_postgresqldatabase = "nextcloud"
-}
+U2FsdGVkX18BXQjE1Jw7OKyKaz3HDNexSLfu461sIOyh4qeak3H+Z7cuJS+FouTS
+retJ3CbFpiPYvrh0MfGFQJRJtiX2MIc0xpYxmK469eOvUL2kqYxtc1/rml+q6mxp
+I6mmkO0I7ciTBVA4ISyk/atz3FvnlspDQmkMFDMEig7KQ2ODEABr/b58TgDEc5oy
+y/z6DmvrBN/nWbTlvl6RIqK1FY4wlgeRtklY8mVtICd4r1u9kADP1RG0lS44nH5S
+LoqxLt/IU/WIXqZ6Jk/YXOQng+L0QosWwnMAl+nlhNLw4PJPbRDjaKLi0ypJnPiN
+dnPcIlFziTlSDx4M1EMzqUSeVOZqi1k+jonzoUivrFWg8ryDdARPk9874UDOhZBz
+oOAW1gNBK0X3KWuRqgEGIQDo7MUSMnrUvuiMXtrYC5Vodm/1d14S7l3G9BuV4kuc
+c6J3oFv6bRseDuBG3p4fx8GRi6RAFsbh0aFo/IxpimDbO2fPUYcJE5eFiMNVeU3U
+JMiY9Y+zdG4WXf4bRGaDWIcg2rIH/ZMx6G18Yyew+bNRT7wviFTR1MapBRACVykP
+Biq71jOrQMvlkQlGZUra67Z9b7isnTZJYRJ0bd52GBuXEqynqHJvdK9AYWzcxTiD
+ZB9kopyi/QC9bRiaeSP5Pni9zfk38MpWpQqJi5IWrSjeIb9yKM10K2ydJy+UGslu
+nD9dnGMgn2OMWu02DK4NeyL4UdidcMmUtJc6Z+lHK3gXkP9w5a0EXMRGATy5a/W9
+1hLMoquzQOoocg3d5xldaDyXapcCZGsIG/wIXCHjEcsEhgUR1D4VwkXFwWlNuxRb
+44Zdc802NgjjG+fLLeLf1ztV/vN0mCZt6nLN7q71Bp7KfpSY3BLA/p6omTrY8hJ9
+VJP2XDIsijmFFQMCoMCeN6mfuDxPEMzURJB+njt9LREEORhI+hd/qsf3EcpoaEwW
+rnK9CqYf1U4CQYnbJTE5RpjQB4Pwfd70J0ktKo9jeAHNSv4KnOSeyS8C1SiHJQFM
+fvsenyCJG/NQG/mDCb7Sf59ntSC6D0xlrxzVHgwoJ8dCWr95uDkUqJPuClDJYrTJ
+EBOHpUgsT/HU1KFet9ee+abgUKLKmIM5gPwyltbcmf9yRqZgth/1aQGuV7zH9zuy
+AWpF5Dj9BblJVO4bkOxObB5p5KwUSmLGUPnRzc1dOLkxA/DHZo5rNQsydtu4Dbtk
+JzEVm/5YVIf0Go2ExGRvgfGMnT7DkzgOS0GAfJPS+jo5IT3zX2L8a1osuKnRn95c
+D6NNXlMSYG69OpIOvSpmmhle3OaRiExolEoIiQrK/OwIQD8F0Xl+BEYCE9OROl74
+s+jyQlj6bB8dW1ZMq3C6EX9MjWcMAWGpYrfY7WzlRGokYlmgtMA9e4oGmOdIGCho
+yIYWHlDDbt9AcE1EMoPAqyRXfF2erj3EL4Iy3YwzNAoC7jBcot5Nki7t6J+3Smoh
+4X+iNIAaGbwvSo1BkzJl3JfV86qNg+Cog5V1LjdFtBXVplcC9haetT2LGf0dTORb
+J04vnlrZEIf2x4sFqLRjD4mLxjPPcLxTk14p89EYo9PifQkpsd13BGfw8UqK40uw
