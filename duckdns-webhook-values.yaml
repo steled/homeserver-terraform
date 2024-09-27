@@ -1,0 +1,23 @@
+groupName: 5p4c3.duckdns.org
+
+certManager:
+  namespace: certmanager
+  serviceAccountName: certmanager-cert-manager
+
+duckdns:
+  token: "cf88b051-7880-455a-829f-40f6235991e7"
+
+clusterIssuer:
+  email: "sleddin@gmx.net"
+  production:
+    create: true
+  staging:
+    create: true
+
+service:
+  type: LoadBalancer
+  # loadBalancerIP: 172.16.4.31
+  # loadBalancerIP: 172.24.3.31
+
+image:
+  repository: steled/cert-manager-webhook-duckdns
