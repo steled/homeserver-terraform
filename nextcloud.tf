@@ -1,34 +1,29 @@
-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
-+hlpW8WGxLE+FJx45h0elw==
+module "nextcloud" {
+  # source="git@github.com:steled/terraformmodules.git//nextcloud?ref=modules"
+  source = "../terraformmodules/nextcloud/"
+
+  ssh_user                  = var.server.user
+  ssh_host                  = var.server.host
+
+  nextcloud_version         = "6.2.1" # get version from here: https://github.com/nextcloud/helm/blob/e11836b1935a2a75022d93212687302697ef80ba/charts/nextcloud/Chart.yaml#L3
+  kubernetes_namespace_name = "nextcloud"
+  maintenance_job_image     = "nextcloud:30.0.1-fpm" # get version from here: https://github.com/nextcloud/helm/blob/main/charts/nextcloud/Chart.yaml#L4
+  nextcloud_domain          = var.nextcloud_prd_domain
+  environment               = var.nextcloud_prd_env
+  ip_address                = var.nextcloud_prd_ip_address
+  nextcloud_admin_username  = var.nextcloud_admin_username
+  nextcloud_admin_password  = var.nextcloud_admin_password
+  nextcloud_proxies         = var.nextcloud_proxies
+  mail_fromaddress          = var.nextcloud_prd_mail_fromaddress
+  mail_domain               = var.nextcloud_mail_domain
+  smtp_host                 = var.nextcloud_smtp_host
+  smtp_port                 = "587"
+  smtp_username             = var.nextcloud_smtp_username
+  smtp_password             = var.nextcloud_smtp_password
+  redis_password            = var.nextcloud_redis_password
+  postgresql_username       = var.nextcloud_postgresql_username
+  postgresql_password       = var.nextcloud_postgresql_password
+  postgresql_database       = var.nextcloud_postgresql_database
+
+  depends_on = [ module.cert_manager_cloudflare ]
+}

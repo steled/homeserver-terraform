@@ -1,17 +1,23 @@
-U2FsdGVkX19jWja2RXSYsC5WKa962ht747vX6VrQ4/a44wjYjigiXEpkMgUdys00
-tOXEd1gWEdnEZKTSA+pUYOd5Ruldc0H2s4s6TgXAyyO3G5cWnje9gExJDIWBA4mj
-qrfMvbaJ/ihc53tPLkMQGHwUWUOFRqE8Dw9EG01EXbPi9tG+150juuIxTInNObNS
-Va865umpxi1utcRYPlNhveUT5sBVcM1SkwMnJXjdC7V+o6ozvuskW5qu6M+J87Vq
-M2dutbMJDL7FYwElowgk63mJz+8PNbKozjVyKiKp1n4Z/v0kaofmrLSfiOdGQRKG
-z08JLJYYE2tlO6Kx70pA3UfNxrO7HfNzuy4CorkqirhCLSaKqM73XxkCwsa2Mjmm
-O30gSlzLJow3KqvtMOXKcZ4oNABb8p9t7Hg/gJnfhS9KmRXblwKxcSEjReQ1CaGY
-D1yM59tDNec8b5v885T9PY5Ldq/vMF6Kckq8lbGpF6CjYhMEbMRhnsNnhcSfkcCk
-lBbYmd2lMoVoSa/roJL63k190zJXeJPXz/pT7hDFxfznXGYSWKH3dJuhQzjVtyww
-bwTLWOJt4lni2Gkro6QN0VhwiPMTXfx1e+cbvccaaWyTHCflJqymmJZj8GNubYDp
-TNt2+FTmgVctDxvg07sS4G+L6Iogc6GK1ydEBerRnM8QcrrgQKGEhGryyZg9V3P8
-RAuQhWq9IiFotjkYSeowXjh4ZnJyxPkWLD1fJzROIJs22cWzMjgJwYNTmAHDtonx
-3PyzGTow1cjr4edhrLwAKBJHYlvDUlsTHM5D8maqqzxY/4IwxODUy/Ob6egmUadn
-4ME+QUj21N8Av4pLZIR30ZaXV8WaaBAI4qZKP6uRdLgrrPSq6eGsEpPAIyOvlFce
-UPqA7R5PaqJ67B/OzZmH0FXjFFntOp6DySJKvZzpn1sA33ZJCa5I2l9emMXGiTOA
-dr4+eE12Er50JS78u73EIIE0eo3aLWsCYS1NuqEFBHiCapIqcGD3kI+USKA67xyz
-vWRm5jGEm4OLHnz2JW+rRMf5P2tIW4Zu/1Ym3I/XZN0=
+module "hassio" {
+  # source = "git@github.com:steled/terraformmodules.git//hassio?ref=modules"
+  source = "../terraformmodules/hassio/"
+
+  ssh_user          = var.server.user
+  ssh_host          = var.server.host
+
+  namespace   = "hassio"
+  host        = var.hassio_domain
+  ip          = var.hassio_ip_address
+  environment = var.hassio_env
+
+  depends_on = [ module.cert_manager_cloudflare ]
+}
+
+#     nginx.org/server-snippets: |2
+#               location / {
+#                 proxy_set_header Host $host;
+#                 proxy_redirect http:// https://;
+#                 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+#                 proxy_set_header Upgrade $http_upgrade;
+#                 proxy_set_header Connection $connection_upgrade;
+#               }
