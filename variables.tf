@@ -88,10 +88,6 @@ variable "nextcloud_mail_domain" {
   type = string
 }
 
-variable "nextcloud_mail_fromaddress" {
-  type = string
-}
-
 variable "nextcloud_postgresql_username" {
   type = string
 }
@@ -120,20 +116,24 @@ variable "nextcloud_smtp_password" {
   type = string
 }
 
-# variable "nextcloud_prd_ip_address" {
-#   type        = string
-#   description = "IP address for Nextcloud prd staging service"
-# }
+variable "nextcloud_prd_ip_address" {
+  type        = string
+  description = "IP address for Nextcloud prd staging service"
+}
 
-# variable "nextcloud_prd_domain" {
-#   type        = string
-#   description = "Domain for Nextcloud prd"
-# }
+variable "nextcloud_prd_domain" {
+  type        = string
+  description = "Domain for Nextcloud prd"
+}
 
-# variable "nextcloud_prd_env" {
-#   type        = string
-#   description = "Environment for Nextcloud prd"
-# }
+variable "nextcloud_prd_env" {
+  type        = string
+  description = "Environment for Nextcloud prd"
+}
+
+variable "nextcloud_prd_mail_fromaddress" {
+  type = string
+}
 
 variable "nextcloud_stg_domain" {
   type        = string
@@ -148,6 +148,10 @@ variable "nextcloud_stg_env" {
 variable "nextcloud_stg_ip_address" {
   type        = string
   description = "IP address for Nextcloud stg service"
+}
+
+variable "nextcloud_stg_mail_fromaddress" {
+  type = string
 }
 
 variable "nextcloud_proxies" {
