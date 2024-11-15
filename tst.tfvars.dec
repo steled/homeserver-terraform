@@ -1,0 +1,12 @@
+cilium_cidr                = "<REDACTED>"
+duckdns_webhook_ip_address = "<REDACTED>"
+ingress_ip_address         = "<REDACTED>"
+nextcloud_ip_address       = "<REDACTED>"
+nextcloud_stg_ip_address   = "<REDACTED>"
+nextcloud_proxies          = "<REDACTED>"
+sftp_ip_address            = "<REDACTED>"
+server                     = {
+  host        = "<REDACTED>"
+  user        = "<REDACTED>"
+  private_key = "<REDACTED>"
+}

@@ -1,0 +1,133 @@
+# Default values for sftp-server.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: steled/sftp
+  tag: alpine-3.20.3
+  pullPolicy: IfNotPresent
+
+sftp:
+  securityContext:
+    capabilities:
+      add:
+        - NET_ADMIN
+        - SYS_CHROOT
+  extraVolumeMounts:
+    - name: steled-downloads
+      mountPath: "/home/steled/downloads"
+  livenessProbe:
+    enabled: false
+  readinessProbe:
+    enabled: false
+#  customLivenessProbe:
+#    exec:
+#      command:
+#        - lsof
+#        - -tni
+#        - tcp:22
+#    failureThreshold: 3
+#    initialDelaySeconds: 65
+#    periodSeconds: 55
+#    successThreshold: 1
+#    timeoutSeconds: 25
+#  customReadinessProbe:
+#    exec:
+#      command:
+#        - lsof
+#        - -tni
+#        - tcp:22
+#    failureThreshold: 3
+#    initialDelaySeconds: 40
+#    periodSeconds: 30
+#    successThreshold: 1
+#    timeoutSeconds: 25
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  annotations:
+    "lbipam.cilium.io/ips": ${sftp_ip_address}
+  enabled: true
+  type: LoadBalancer
+  # loadBalancerIP: 172.16.4.33
+  port: 22
+
+sftpConfig:
+  username: steled
+  password: ""
+  encrypted: false
+  uid: "1000"
+  gid: "1000"
+  dirs: "downloads"
+  hostKeys: {}
+    #secret: name-of-existing-secret
+    #keys:
+    #- ssh_host_rsa_key
+    #- ssh_host_ed25519_key
+  authorizedKeys:
+  - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC3MlX8PC45lojTGQibGHZ0F26FZOhhGwcE3ROlg+LtQ5iPNMh8cjZlQ2BaW0P7D/3YfbiyN6t4odV+bC9Hx/7oXAa3TGvR4rALC7LEw37Fw78sfDqTqRWt3tNSk5BWgKNRpNMLFUwRSUQ0XAVMRQbqzusG4KwL0GgwiSgx5lVMXlt+PRmYhR7zsg0BqxC7WT9hMDVov1UT+xGWKDoWN4WULXYZ1wow2SJfZjw0JYcgb9c2zL2RhGahdF3VO+O/EuYbzvyFithpqYJEcmQAXLyrwyLO3X+Z7uZ7GccTeOrsyX8WGIrfz4wURv5Lqqpmy0VXW19MRrF87HJ5pcig2dOYAS4WkORAsR6f7IaDXEXoDmXlnMIrCCyEpXwZTAdW97QsQbA8t/fqejgG+U0o4PTltkwKywTGksENuzB0EwCrh5wESiX116REwWq+b4P089Pau3NHHe1rZOSJInNjzLvg0ac6kRjzxLAsjG1jupONXbgiPAvmASE6N2X33svskDgeeBmbbFbKG5S4jwXL1fgVwYDtyLehptl1p/mr9bVr/eq4iZjuScnpKpdWtrK756FAbfghbtkulJs0VLsrGenrNS754oIbNzEzELwzDb45TOO0JuhGeywdIm8qluGjuHOgc6BPbv6exZfaC+42z0SWiajJqv6uhrKaGEs553rWSw== steled"
+
+debug:
+  enabled: false
+  image:
+    repository: quay.io/travelping/nettools
+    tag: v1.12.0
+    pullPolicy: IfNotPresent
+
+persistentVolume:
+  enabled: false
+  annotations: {}
+  accessModes:
+    - ReadWriteOnce
+  existingClaim: ""
+  size: 100Mi
+  # storageClass: "-"
+
+# additional volumes to add to the sftp deployment.
+extraVolumes:
+  - name: steled-downloads
+    persistentVolumeClaim:
+      claimName: jd-sftp-downloads-pvc
+
+vxlanController:
+  enabled: false
+  annotationKey: vxlan.openvnf.org/networks
+  metadataKey: vxlan.openvnf.org
+  image:
+    repository: openvnf/kube-vxlan-controller-agent
+    tag: 2.1.0
+    pullPolicy: IfNotPresent
+  network: "vxeth0"
+  ip: {}
+  route: {}
+  resources:
+    limits:
+      cpu: 50m
+      memory: 64Mi
+    requests:
+      cpu: 50m
+      memory: 64Mi
+
+resources:
+  sftp:
+    limits:
+      cpu: 3000m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  debug:
+    limits:
+      cpu: 100m
+      memory: 64Mi
+    requests:
+      cpu: 50m
+      memory: 32Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

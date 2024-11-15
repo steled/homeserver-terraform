@@ -1,0 +1,11 @@
+k8sClientRateLimit:
+  burst: 100
+  qps: 50
+
+kubeProxyReplacement: true
+
+l2announcements:
+  enabled: true
+
+operator:
+  replicas: 1

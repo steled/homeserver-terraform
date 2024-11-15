@@ -1,2 +1,4 @@
-# rpi-bootstrap-terraform
-Bootstrapping of RPi via Terraform
+# homeserver-terraform
+Repository for HomeServer install/config via Terraform
+
+source: https://github.com/mrsauravsahu/kube-homelab/tree/main

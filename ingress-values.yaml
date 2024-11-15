@@ -1,0 +1,17 @@
+controller:
+  service:
+    annotations:
+      "lbipam.cilium.io/ips": "${ingress_ip_address}"
+    # loadBalancerIP: 172.16.4.40
+
+  config:
+    hsts: true
+    hsts-include-subdomains: true
+    hsts-max-age: "31536000"
+
+  metrics:
+    enabled: true
+    service:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"

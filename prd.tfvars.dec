@@ -1,0 +1,64 @@
+## General
+cert_manager_email             = "<REDACTED>"
+cilium_cidr                    = "<REDACTED>"
+ingress_ip_address             = "<REDACTED>"
+sftp_ip_address                = "<REDACTED>"
+server                         = {
+  host        = "<REDACTED>"
+  user        = "<REDACTED>"
+  private_key = "<REDACTED>"
+}
+
+## Cloudflare
+cloudflare_api_token           = "<REDACTED>"
+cloudflare_dns_zone_id         = "<REDACTED>"
+cloudflare_dnsrecord           = [
+  "(\"<REDACTED>\" \"<REDACTED>\")",
+  "(\"<REDACTED>\" \"<REDACTED>\")",
+]
+# duckdns_webhook_ip_address = "<REDACTED>"
+
+## Hashicorp Vault
+hashicorp_vault_domain         = "<REDACTED>"
+hashicorp_vault_env            = "<REDACTED>"
+hashicorp_vault_ip_address     = "<REDACTED>"
+
+## JDownloader
+jdownloader_env_jd_devicename  = "<REDACTED>"
+jdownloader_env_jd_email       = "<REDACTED>"
+jdownloader_env_jd_password    = "<REDACTED>"
+
+## Hassio
+hassio_domain                  = "<REDACTED>"
+hassio_ip_address              = "<REDACTED>"
+hassio_env                     = "<REDACTED>"
+
+## Nextcloud
+nextcloud_admin_password       = "<REDACTED>"
+nextcloud_admin_username       = "<REDACTED>"
+nextcloud_mail_domain          = "<REDACTED>"
+nextcloud_postgresql_database  = "<REDACTED>"
+nextcloud_postgresql_password  = "<REDACTED>"
+nextcloud_postgresql_username  = "<REDACTED>"
+# nextcloud_prd_domain           = "<REDACTED>"
+# nextcloud_prd_env              = "<REDACTED>"
+# nextcloud_prd_ip_address       = "<REDACTED>"
+# nextcloud_prd_mail_fromaddress = "<REDACTED>"
+# nextcloud_prd_proxies          = "<REDACTED>"
+nextcloud_proxies              = "<REDACTED>"
+nextcloud_redis_password       = "<REDACTED>"
+nextcloud_smtp_host            = "<REDACTED>"
+nextcloud_smtp_password        = "<REDACTED>"
+nextcloud_smtp_username        = "<REDACTED>"
+nextcloud_stg_domain           = "<REDACTED>"
+# nextcloud_stg_domain           = "<REDACTED>"
+nextcloud_stg_env              = "<REDACTED>"
+nextcloud_stg_ip_address       = "<REDACTED>"
+nextcloud_stg_mail_fromaddress = "<REDACTED>"
+# nextcloud_mail_fromaddress     = "<REDACTED>"
+
+## rsync
+rsync_dst_folder_path          = "<REDACTED>"
+rsync_dst_ip_address           = "<REDACTED>"
+rsync_username                 = "<REDACTED>"
+rsync_src_folder_path          = "<REDACTED>"
