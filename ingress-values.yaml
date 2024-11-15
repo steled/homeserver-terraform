@@ -1,6 +1,8 @@
 controller:
-  # loadBalancerIP: 172.16.4.30
-  loadBalancerIP: 172.28.155.30
+  service:
+    annotations:
+      "lbipam.cilium.io/ips": "${ingress_ip_address}"
+    # loadBalancerIP: 172.16.4.40
 
   config:
     hsts: true
