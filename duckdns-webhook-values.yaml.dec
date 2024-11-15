@@ -1,11 +1,13 @@
 groupName: <REDACTED>
 
 certManager:
-  namespace: certmanager
-  serviceAccountName: certmanager-cert-manager
+  namespace: cert-manager
+  serviceAccountName: cert-manager
 
-duckdns:
-  token: "<REDACTED>"
+# duckdns:
+#   token: "<REDACTED>"
+token:
+  value: "<REDACTED>"
 
 clusterIssuer:
   email: "<REDACTED>"
@@ -14,10 +16,10 @@ clusterIssuer:
   staging:
     create: true
 
-service:
-  type: LoadBalancer
-  # loadBalancerIP: 172.16.4.31
-  # loadBalancerIP: 172.24.3.31
+# service:
+#   annotations:
+#     "lbipam.cilium.io/ips": ${duckdns_webhook_ip_address}
+#   type: LoadBalancer
 
-image:
-  repository: steled/cert-manager-webhook-duckdns
+# image:
+#   repository: steled/cert-manager-webhook-duckdns
