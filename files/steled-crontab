@@ -1,0 +1,12 @@
+# Terraform: project automation mirror to github
+# 00 21 * * * /ext/scripts/project_automation_mirror_k8s.sh 2> /ext/logs/project_automation_mirror.log
+# Terraform: terraform mirror to github
+# 30 21 * * * /ext/scripts/terraform_mirror_k8s.sh 2> /ext/logs/terraform_mirror.log
+# Terraform: hassio backup
+00 22 * * * /ext/scripts/hassio_backup.sh 2> /ext/logs/hassio_backup_error.log
+# Terraform: gitea backup
+# 30 22 * * * /ext/scripts/gitea_backup_k8s.sh 2> /ext/logs/gitea_backup_error.log
+# Terraform: nextcloud backup
+00 23 * * * /ext/scripts/nextcloud_backup.sh 2> /ext/logs/nextcloud_backup_error.log
+# Terraform: homeserver backup
+00 00 * * * /ext/scripts/homeserver_backup.sh 2> /ext/logs/central01_backup_error.log
