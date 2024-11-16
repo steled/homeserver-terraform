@@ -2,8 +2,8 @@ module "hassio" {
   # source = "git@github.com:steled/terraformmodules.git//hassio?ref=modules"
   source = "../terraformmodules/hassio/"
 
-  ssh_user          = var.server.user
-  ssh_host          = var.server.host
+  ssh_user    = var.server.user
+  ssh_host    = var.server.host
 
   namespace   = "hassio"
   host        = var.hassio_domain

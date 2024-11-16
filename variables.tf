@@ -138,20 +138,24 @@ variable "nextcloud_prd_mail_fromaddress" {
 variable "nextcloud_stg_domain" {
   type        = string
   description = "Domain for Nextcloud stg"
+  nullable    = true
 }
 
 variable "nextcloud_stg_env" {
   type        = string
   description = "Environment for Nextcloud stg"
+  nullable    = true
 }
 
 variable "nextcloud_stg_ip_address" {
   type        = string
   description = "IP address for Nextcloud stg service"
+  nullable    = true
 }
 
 variable "nextcloud_stg_mail_fromaddress" {
   type = string
+  nullable    = true
 }
 
 variable "nextcloud_proxies" {
