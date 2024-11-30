@@ -17,7 +17,7 @@ fi
 echo -e "\033[41;106mCreating backup at hassio\033[0m"
 ssh -o "IdentitiesOnly=yes" -i ~/.ssh/backup.id_rsa hassio@$hassio 'source /etc/profile; ha backups new' 2> /dev/null
 
-# use rsync to copy only archives that dont already exist on control01
+# use rsync to copy only archives that dont already exist on local
 echo -e "\033[41;106mSyncing backup to local\033[0m"
 rsync --delete -rtu -e "ssh -o \"IdentitiesOnly=yes\" -i ~/.ssh/backup.id_rsa" hassio@$hassio:/backup/ $backup_dir 2> /dev/null
 
