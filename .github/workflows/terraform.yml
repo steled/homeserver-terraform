@@ -71,6 +71,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
         ssh-keygen -f ~/.ssh/id_ed25519 -t ed25519 -P ""
+        ssh -vT git@github.com
         terraform init
         tflint --call-module-type=all
 
