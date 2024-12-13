@@ -30,11 +30,11 @@
 
 resource "terraform_data" "files" {
   triggers_replace = fileset("${path.module}/files", "**")
-  
+
   connection {
-    type     = "ssh"
-    user     = var.server.user
-    host     = var.server.host
+    type = "ssh"
+    user = var.server.user
+    host = var.server.host
   }
 
   provisioner "file" {

@@ -1,9 +1,9 @@
 module "nextcloud" {
-  source="git@github.com:steled/terraformmodules.git//nextcloud?ref=v0.5"
+  source = "git@github.com:steled/terraformmodules.git//nextcloud?ref=v0.5"
   # source = "../terraformmodules/nextcloud/"
 
-  ssh_user                  = var.server.user
-  ssh_host                  = var.server.host
+  ssh_user = var.server.user
+  ssh_host = var.server.host
 
   nextcloud_version         = "6.2.3" # get version from here: https://github.com/nextcloud/helm/blob/main/charts/nextcloud/Chart.yaml#L3
   kubernetes_namespace_name = "nextcloud"
@@ -25,5 +25,5 @@ module "nextcloud" {
   postgresql_password       = var.nextcloud_postgresql_password
   postgresql_database       = var.nextcloud_postgresql_database
 
-  depends_on = [ module.cert_manager_cloudflare ]
+  depends_on = [module.cert_manager_cloudflare]
 }

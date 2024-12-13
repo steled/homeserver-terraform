@@ -1,9 +1,9 @@
 module "jdownloader" {
-  source="git@github.com:steled/terraformmodules.git//jdownloader?ref=v0.5"
+  source = "git@github.com:steled/terraformmodules.git//jdownloader?ref=v0.5"
   # source = "../terraformmodules/jdownloader/"
 
-  ssh_user              = var.server.user
-  ssh_host              = var.server.host
+  ssh_user = var.server.user
+  ssh_host = var.server.host
 
   namespace             = "jd-sftp"
   env_jd_devicename     = var.jdownloader_env_jd_devicename
@@ -17,7 +17,7 @@ module "jdownloader" {
   rsync_dst_folder_path = var.rsync_dst_folder_path
   rsync_username        = var.rsync_username
   rsync_src_folder_path = var.rsync_src_folder_path
-  
+
   # sftp_values_yaml  = [ templatefile("${path.root}/sftp-values.yaml", {
   #   sftp_ip_address = var.sftp_ip_address
   # })]

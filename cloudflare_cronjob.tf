@@ -19,7 +19,7 @@ resource "kubernetes_secret_v1" "cloudflare_dyndns_secret" {
 
 resource "kubernetes_config_map_v1" "cloudflare_dyndns_script" {
   metadata {
-    name = "cloudflare-dyndns"
+    name      = "cloudflare-dyndns"
     namespace = "default"
   }
 
@@ -74,22 +74,22 @@ resource "kubernetes_cron_job_v1" "cloudflare_dyndns_cronjob" {
           metadata {}
           spec {
             container {
-              command = [ 
+              command = [
                 "/usr/local/bin/bash",
                 "-c",
-                "apk add --update curl jq &>/dev/null && /script/cloudflare_dyndns_script.sh" ]
-                # "apk add --update curl jq &>/dev/null && while [ -z \"$CURRENT_IP_ADDRESS\" ]; do CURRENT_IP_ADDRESS=$(curl -s ip.me); done && for DNS_RECORD in \"$${DNS_RECORDS[@]}\"; do IFS=\";\" read -r -a arr <<< \"$${DNS_RECORD}\" while [ -z \"$CURRENT_DNS_VALUE\" ]; do CURRENT_DNS_VALUE=$(curl -sX GET \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${arr[1]}\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer $${AUTH_KEY}\" | jq -r .result.content); done && if [ $${CURRENT_DNS_VALUE} != $${CURRENT_IP_ADDRESS} ] ; then curl -sX PUT \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${arr[1]}\" -H \"Authorization: Bearer $${AUTH_KEY}\" -H \"Content-Type:application/json\" --data '{\"type\":\"A\",\"name\":'\\\"$${arr[0]}'\",\"content\":'\\\"$${CURRENT_IP_ADDRESS}'\"}' > /dev/null; fi && (echo OK && exit 0) || (echo ERROR && exit 1); done" ]
-                # "apk add --update curl jq &>/dev/null && while [ -z \"$CURRENT_IP_ADDRESS\" ]; do CURRENT_IP_ADDRESS=$(curl -s ip.me); done && while [ -z \"$CURRENT_DNS_VALUE\" ]; do CURRENT_DNS_VALUE=$(curl -sX GET \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${DNS_RECORD_ID}\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer $${AUTH_KEY}\" | jq -r .result.content); done && if [ $${CURRENT_DNS_VALUE} != $${CURRENT_IP_ADDRESS} ] ; then curl -sX PUT \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${DNS_RECORD_ID}\" -H \"Authorization: Bearer $${AUTH_KEY}\" -H \"Content-Type:application/json\" --data '{\"type\":\"A\",\"name\":'\\\"$${DNS_RECORD_NAME}'\",\"content\":'\\\"$${CURRENT_IP_ADDRESS}'\"}' > /dev/null; fi && (echo OK && exit 0) || (echo ERROR && exit 1)" ]
+              "apk add --update curl jq &>/dev/null && /script/cloudflare_dyndns_script.sh"]
+              # "apk add --update curl jq &>/dev/null && while [ -z \"$CURRENT_IP_ADDRESS\" ]; do CURRENT_IP_ADDRESS=$(curl -s ip.me); done && for DNS_RECORD in \"$${DNS_RECORDS[@]}\"; do IFS=\";\" read -r -a arr <<< \"$${DNS_RECORD}\" while [ -z \"$CURRENT_DNS_VALUE\" ]; do CURRENT_DNS_VALUE=$(curl -sX GET \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${arr[1]}\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer $${AUTH_KEY}\" | jq -r .result.content); done && if [ $${CURRENT_DNS_VALUE} != $${CURRENT_IP_ADDRESS} ] ; then curl -sX PUT \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${arr[1]}\" -H \"Authorization: Bearer $${AUTH_KEY}\" -H \"Content-Type:application/json\" --data '{\"type\":\"A\",\"name\":'\\\"$${arr[0]}'\",\"content\":'\\\"$${CURRENT_IP_ADDRESS}'\"}' > /dev/null; fi && (echo OK && exit 0) || (echo ERROR && exit 1); done" ]
+              # "apk add --update curl jq &>/dev/null && while [ -z \"$CURRENT_IP_ADDRESS\" ]; do CURRENT_IP_ADDRESS=$(curl -s ip.me); done && while [ -z \"$CURRENT_DNS_VALUE\" ]; do CURRENT_DNS_VALUE=$(curl -sX GET \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${DNS_RECORD_ID}\" -H \"Content-Type:application/json\" -H \"Authorization: Bearer $${AUTH_KEY}\" | jq -r .result.content); done && if [ $${CURRENT_DNS_VALUE} != $${CURRENT_IP_ADDRESS} ] ; then curl -sX PUT \"https://api.cloudflare.com/client/v4/zones/$${DNS_ZONE_ID}/dns_records/$${DNS_RECORD_ID}\" -H \"Authorization: Bearer $${AUTH_KEY}\" -H \"Content-Type:application/json\" --data '{\"type\":\"A\",\"name\":'\\\"$${DNS_RECORD_NAME}'\",\"content\":'\\\"$${CURRENT_IP_ADDRESS}'\"}' > /dev/null; fi && (echo OK && exit 0) || (echo ERROR && exit 1)" ]
               image             = "bash:latest"
               image_pull_policy = "IfNotPresent"
               name              = "cloudflare-dyndns"
               volume_mount {
                 mount_path = "/script"
-                name = "cloudflare-dyndns-script"
+                name       = "cloudflare-dyndns-script"
               }
               volume_mount {
                 mount_path = "/env"
-                name = "cloudflare-dyndns-env"
+                name       = "cloudflare-dyndns-env"
               }
               # env_from {
               #   secret_ref {
@@ -137,14 +137,14 @@ resource "kubernetes_cron_job_v1" "cloudflare_dyndns_cronjob" {
               name = "cloudflare-dyndns-script"
               config_map {
                 default_mode = "0777"
-                name = "cloudflare-dyndns"
+                name         = "cloudflare-dyndns"
               }
             }
             volume {
               name = "cloudflare-dyndns-env"
               secret {
                 default_mode = "0644"
-                secret_name = "cloudflare-dyndns"
+                secret_name  = "cloudflare-dyndns"
               }
             }
             restart_policy = "OnFailure"

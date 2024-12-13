@@ -2,15 +2,15 @@ module "hassio" {
   source = "git@github.com:steled/terraformmodules.git//hassio?ref=v0.5"
   # source = "../terraformmodules/hassio/"
 
-  ssh_user    = var.server.user
-  ssh_host    = var.server.host
+  ssh_user = var.server.user
+  ssh_host = var.server.host
 
   namespace   = "hassio"
   host        = var.hassio_domain
   ip          = var.hassio_ip_address
   environment = var.hassio_env
 
-  depends_on = [ module.cert_manager_cloudflare ]
+  depends_on = [module.cert_manager_cloudflare]
 }
 
 #     nginx.org/server-snippets: |2
