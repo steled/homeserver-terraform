@@ -71,7 +71,7 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
         # replace SSH cloning wiht HTTPS cloning method
-        sed -i 's/git@github.com:steled/https:\/\/github.com\/steled/' *.tf
+        sed -i 's/git@github.com:steled/github.com\/steled/' *.tf
         terraform init
         tflint --call-module-type=all
 
