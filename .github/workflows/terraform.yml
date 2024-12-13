@@ -1,0 +1,91 @@
+name: 'Terraform'
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+  # Triggers the workflow on push (only for the "main" branch) or pull request events
+  push:
+    branches:
+      - main
+  pull_request:
+
+#  if a new commit is pushed to the main branch while a previous run is still in progress, the previous run will be cancelled and the new one will start
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tffmt:
+    permissions:
+      contents: write
+      pull-requests: write
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: terraform fmt
+        uses: dflook/terraform-fmt@v1
+        with:
+          path: .
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          base: ${{ github.head_ref }}
+          body: Update Terraform files to canonical format using `terraform fmt`
+          branch: automated-terraform-fmt
+          commit-message: terraform fmt
+          title: Reformat terraform files
+
+  tflint:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout source code
+      uses: actions/checkout@v4
+
+    - name: Cache plugin dir
+      uses: actions/cache@v4
+      with:
+        key: tflint-${{ hashFiles('.tflint.hcl') }}
+        path: ~/.tflint.d/plugins
+
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v4
+
+    - name: Show version
+      run: tflint --version
+
+    - name: Init TFLint
+      env:
+        # https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting
+        GITHUB_TOKEN: ${{ github.token }}
+      run: tflint --recursive --init
+
+    - name: Run TFLint
+      run: tflint --recursive --call-module-type=all
+
+  tfdocs:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Checkout source code
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+
+    - name: Render terraform docs inside the README.md and push changes back to PR branch
+      uses: terraform-docs/gh-actions@v1.3.0
+      with:
+        git-push: "true"
+        output-file: README.md
+        output-method: inject
+        recursive: "true"
+        working-dir: .
