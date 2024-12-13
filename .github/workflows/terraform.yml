@@ -70,8 +70,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
-        ssh-keygen -f ~/.ssh/id_ed25519 -t ed25519 -P ""
-        ssh -vT git@github.com
+        # replace SSH cloning wiht HTTPS cloning method
+        sed -i 's/git@github.com:steled/https:\/\/github.com\/steled/' *.tf
         terraform init
         tflint --call-module-type=all
 
