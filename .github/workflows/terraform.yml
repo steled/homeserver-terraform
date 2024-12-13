@@ -67,6 +67,8 @@ jobs:
       run: tflint --recursive --init
 
     - name: Run TFLint
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
       run: |
         terraform init
         tflint --recursive --call-module-type=all
