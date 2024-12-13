@@ -1,7 +1,7 @@
 ## General
 cert_manager_email             = "<REDACTED>"
 cilium_cidr                    = "<REDACTED>"
-ingress_ip_address             = "<REDACTED>"
+# ingress_ip_address             = "<REDACTED>"
 sftp_ip_address                = "<REDACTED>"
 server                         = {
   host        = "<REDACTED>"
@@ -49,7 +49,6 @@ nextcloud_redis_password       = "<REDACTED>"
 nextcloud_smtp_host            = "<REDACTED>"
 nextcloud_smtp_password        = "<REDACTED>"
 nextcloud_smtp_username        = "<REDACTED>"
-nextcloud_stg_domain           = "<REDACTED>"
 # nextcloud_stg_domain           = "<REDACTED>"
 # nextcloud_stg_env              = "<REDACTED>"
 # nextcloud_stg_ip_address       = "<REDACTED>"
