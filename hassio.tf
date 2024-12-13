@@ -1,6 +1,6 @@
 module "hassio" {
-  # source = "git@github.com:steled/terraformmodules.git//hassio?ref=modules"
-  source = "../terraformmodules/hassio/"
+  source = "git@github.com:steled/terraformmodules.git//hassio?ref=main"
+  # source = "../terraformmodules/hassio/"
 
   ssh_user    = var.server.user
   ssh_host    = var.server.host

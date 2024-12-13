@@ -1,6 +1,6 @@
 module "hashicorp_vault_staging" {
-  # source="git@github.com:steled/terraformmodules.git//nextcloud_staging?ref=modules"
-  source = "../terraformmodules/hashicorp-vault/"
+  source="git@github.com:steled/terraformmodules.git//nextcloud_staging?ref=main"
+  # source = "../terraformmodules/hashicorp-vault/"
 
   ssh_user = var.server.user
   ssh_host = var.server.host

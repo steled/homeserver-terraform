@@ -1,6 +1,6 @@
 module "jdownloader" {
-  # source="git@github.com:steled/terraformmodules.git//jdownloader?ref=modules"
-  source = "../terraformmodules/jdownloader/"
+  source="git@github.com:steled/terraformmodules.git//jdownloader?ref=main"
+  # source = "../terraformmodules/jdownloader/"
 
   ssh_user              = var.server.user
   ssh_host              = var.server.host

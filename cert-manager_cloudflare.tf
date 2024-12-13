@@ -1,6 +1,6 @@
 module "cert_manager_cloudflare" {
-  # source = "git@github.com:steled/terraformmodules.git//cert-manager_cloudflare?ref=modules"
-  source = "../terraformmodules/cert-manager_cloudflare/"
+  source = "git@github.com:steled/terraformmodules.git//cert-manager_cloudflare?ref=main"
+  # source = "../terraformmodules/cert-manager_cloudflare/"
 
   namespace            = "cert-manager"
   cert_manager_version = "v1.16.1" # check version here: https://artifacthub.io/packages/helm/cert-manager/cert-manager/
