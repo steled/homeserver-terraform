@@ -67,7 +67,9 @@ jobs:
       run: tflint --recursive --init
 
     - name: Run TFLint
-      run: tflint --recursive --call-module-type=all
+      run: |
+        terraform init
+        tflint --recursive --call-module-type=all
 
   tfdocs:
     permissions:
