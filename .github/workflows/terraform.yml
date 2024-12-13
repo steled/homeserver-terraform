@@ -64,14 +64,15 @@ jobs:
       env:
         # https://github.com/terraform-linters/tflint/blob/master/docs/user-guide/plugins.md#avoiding-rate-limiting
         GITHUB_TOKEN: ${{ github.token }}
-      run: tflint --recursive --init
+      run: tflint --init
 
     - name: Run TFLint
       env:
         GITHUB_TOKEN: ${{ github.token }}
       run: |
+        ssh-keygen -f ~/.ssh/id_ed25519 -t ed25519 -P ""
         terraform init
-        tflint --recursive --call-module-type=all
+        tflint --call-module-type=all
 
   tfdocs:
     permissions:
