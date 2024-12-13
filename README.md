@@ -81,7 +81,7 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_rsync_dst_ip_address"></a> [rsync\_dst\_ip\_address](#input\_rsync\_dst\_ip\_address) | Destination ip address for rsync cronjob | `string` | n/a | yes |
 | <a name="input_rsync_src_folder_path"></a> [rsync\_src\_folder\_path](#input\_rsync\_src\_folder\_path) | Source folder path for rsync cronjob | `string` | n/a | yes |
 | <a name="input_rsync_username"></a> [rsync\_username](#input\_rsync\_username) | Username for rsync cronjob | `string` | n/a | yes |
-| <a name="input_server"></a> [server](#input\_server) | machine which will run the control plane | <pre>object({<br/>    host = string,<br/>    user = string,<br/>    private_key = string,<br/>  })</pre> | n/a | yes |
+| <a name="input_server"></a> [server](#input\_server) | machine which will run the control plane | <pre>object({<br/>    host        = string,<br/>    user        = string,<br/>    private_key = string,<br/>  })</pre> | n/a | yes |
 | <a name="input_sftp_ip_address"></a> [sftp\_ip\_address](#input\_sftp\_ip\_address) | IP address for SFTP service | `string` | n/a | yes |
 
 ## Outputs
