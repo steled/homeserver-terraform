@@ -32,7 +32,6 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | main |
 | <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | main |
 | <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | main |
-| <a name="module_nextcloud_staging"></a> [nextcloud\_staging](#module\_nextcloud\_staging) | ../terraformmodules/nextcloud_staging/ | n/a |
 
 ## Resources
 
