@@ -28,7 +28,7 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | main |
-| <a name="module_hashicorp_vault_staging"></a> [hashicorp\_vault\_staging](#module\_hashicorp\_vault\_staging) | git@github.com:steled/terraformmodules.git//nextcloud_staging | main |
+| <a name="module_hashicorp_vault_staging"></a> [hashicorp\_vault\_staging](#module\_hashicorp\_vault\_staging) | git@github.com:steled/terraformmodules.git//hashicorp-vault | main |
 | <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | main |
 | <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | main |
 | <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | main |
@@ -59,7 +59,6 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_hassio_domain"></a> [hassio\_domain](#input\_hassio\_domain) | Domain for Hassio | `string` | n/a | yes |
 | <a name="input_hassio_env"></a> [hassio\_env](#input\_hassio\_env) | Environment for Hassio | `string` | n/a | yes |
 | <a name="input_hassio_ip_address"></a> [hassio\_ip\_address](#input\_hassio\_ip\_address) | IP address for Hassio | `string` | n/a | yes |
-| <a name="input_ingress_ip_address"></a> [ingress\_ip\_address](#input\_ingress\_ip\_address) | IP address for Ingress service | `string` | n/a | yes |
 | <a name="input_jdownloader_env_jd_devicename"></a> [jdownloader\_env\_jd\_devicename](#input\_jdownloader\_env\_jd\_devicename) | n/a | `string` | n/a | yes |
 | <a name="input_jdownloader_env_jd_email"></a> [jdownloader\_env\_jd\_email](#input\_jdownloader\_env\_jd\_email) | n/a | `string` | n/a | yes |
 | <a name="input_jdownloader_env_jd_password"></a> [jdownloader\_env\_jd\_password](#input\_jdownloader\_env\_jd\_password) | n/a | `string` | n/a | yes |
@@ -78,10 +77,6 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_nextcloud_smtp_host"></a> [nextcloud\_smtp\_host](#input\_nextcloud\_smtp\_host) | n/a | `string` | n/a | yes |
 | <a name="input_nextcloud_smtp_password"></a> [nextcloud\_smtp\_password](#input\_nextcloud\_smtp\_password) | n/a | `string` | n/a | yes |
 | <a name="input_nextcloud_smtp_username"></a> [nextcloud\_smtp\_username](#input\_nextcloud\_smtp\_username) | n/a | `string` | n/a | yes |
-| <a name="input_nextcloud_stg_domain"></a> [nextcloud\_stg\_domain](#input\_nextcloud\_stg\_domain) | Domain for Nextcloud stg | `string` | `""` | no |
-| <a name="input_nextcloud_stg_env"></a> [nextcloud\_stg\_env](#input\_nextcloud\_stg\_env) | Environment for Nextcloud stg | `string` | `""` | no |
-| <a name="input_nextcloud_stg_ip_address"></a> [nextcloud\_stg\_ip\_address](#input\_nextcloud\_stg\_ip\_address) | IP address for Nextcloud stg service | `string` | `""` | no |
-| <a name="input_nextcloud_stg_mail_fromaddress"></a> [nextcloud\_stg\_mail\_fromaddress](#input\_nextcloud\_stg\_mail\_fromaddress) | n/a | `string` | `""` | no |
 | <a name="input_rsync_dst_folder_path"></a> [rsync\_dst\_folder\_path](#input\_rsync\_dst\_folder\_path) | Destination folder path for rsync cronjob | `string` | n/a | yes |
 | <a name="input_rsync_dst_ip_address"></a> [rsync\_dst\_ip\_address](#input\_rsync\_dst\_ip\_address) | Destination ip address for rsync cronjob | `string` | n/a | yes |
 | <a name="input_rsync_src_folder_path"></a> [rsync\_src\_folder\_path](#input\_rsync\_src\_folder\_path) | Source folder path for rsync cronjob | `string` | n/a | yes |
