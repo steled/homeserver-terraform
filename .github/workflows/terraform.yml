@@ -29,10 +29,8 @@ jobs:
       - name: Clone git repo elasticdog/transcrypt
         run: |
           echo 'Cloning transcrypt main branch'
-          test -d ../../../../transcrypt && rm -rf ../../../../transcrypt
-          git clone https://github.com/elasticdog/transcrypt.git ../../../../transcrypt
-          cd ../../../../transcrypt
-          test -f /usr/local/bin/transcrypt && sudo rm -rf /usr/local/bin/transcrypt
+          git clone https://github.com/elasticdog/transcrypt.git ../transcrypt
+          cd ../transcrypt
           sudo ln -s ${PWD}/transcrypt /usr/local/bin/transcrypt
 
       - name: Configure transcrypt
