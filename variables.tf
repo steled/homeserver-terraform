@@ -57,10 +57,10 @@ variable "hassio_env" {
   description = "Environment for Hassio"
 }
 
-variable "ingress_ip_address" {
-  type        = string
-  description = "IP address for Ingress service"
-}
+# variable "ingress_ip_address" {
+#   type        = string
+#   description = "IP address for Ingress service"
+# }
 
 variable "jdownloader_env_jd_devicename" {
   type = string
@@ -135,32 +135,32 @@ variable "nextcloud_prd_mail_fromaddress" {
   type = string
 }
 
-variable "nextcloud_stg_domain" {
-  type        = string
-  default     = ""
-  description = "Domain for Nextcloud stg"
-  nullable    = true
-}
+# variable "nextcloud_stg_domain" {
+#   type        = string
+#   default     = ""
+#   description = "Domain for Nextcloud stg"
+#   nullable    = true
+# }
 
-variable "nextcloud_stg_env" {
-  type        = string
-  default     = ""
-  description = "Environment for Nextcloud stg"
-  nullable    = true
-}
+# variable "nextcloud_stg_env" {
+#   type        = string
+#   default     = ""
+#   description = "Environment for Nextcloud stg"
+#   nullable    = true
+# }
 
-variable "nextcloud_stg_ip_address" {
-  type        = string
-  default     = ""
-  description = "IP address for Nextcloud stg service"
-  nullable    = true
-}
+# variable "nextcloud_stg_ip_address" {
+#   type        = string
+#   default     = ""
+#   description = "IP address for Nextcloud stg service"
+#   nullable    = true
+# }
 
-variable "nextcloud_stg_mail_fromaddress" {
-  type     = string
-  default  = ""
-  nullable = true
-}
+# variable "nextcloud_stg_mail_fromaddress" {
+#   type     = string
+#   default  = ""
+#   nullable = true
+# }
 
 variable "nextcloud_proxies" {
   type        = string
