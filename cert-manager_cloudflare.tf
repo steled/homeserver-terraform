@@ -1,5 +1,5 @@
 module "cert_manager_cloudflare" {
-  source = "git@github.com:steled/terraformmodules.git//cert-manager_cloudflare?ref=main"
+  source = "git@github.com:steled/terraformmodules.git//cert-manager_cloudflare?ref=v0.5"
   # source = "../terraformmodules/cert-manager_cloudflare/"
 
   namespace            = "cert-manager"
