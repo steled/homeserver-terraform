@@ -27,11 +27,11 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | ../terraformmodules/cert-manager_cloudflare/ | n/a |
-| <a name="module_hashicorp_vault_staging"></a> [hashicorp\_vault\_staging](#module\_hashicorp\_vault\_staging) | ../terraformmodules/hashicorp-vault/ | n/a |
-| <a name="module_hassio"></a> [hassio](#module\_hassio) | ../terraformmodules/hassio/ | n/a |
-| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | ../terraformmodules/jdownloader/ | n/a |
-| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | ../terraformmodules/nextcloud/ | n/a |
+| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | main |
+| <a name="module_hashicorp_vault_staging"></a> [hashicorp\_vault\_staging](#module\_hashicorp\_vault\_staging) | git@github.com:steled/terraformmodules.git//nextcloud_staging | main |
+| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | main |
+| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | main |
+| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | main |
 | <a name="module_nextcloud_staging"></a> [nextcloud\_staging](#module\_nextcloud\_staging) | ../terraformmodules/nextcloud_staging/ | n/a |
 
 ## Resources
