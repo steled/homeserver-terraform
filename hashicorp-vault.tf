@@ -1,5 +1,5 @@
 module "hashicorp_vault_staging" {
-  source="git@github.com:steled/terraformmodules.git//hashicorp-vault?ref=v0.5"
+  source = "git@github.com:steled/terraformmodules.git//hashicorp-vault?ref=v0.5"
   # source = "../terraformmodules/hashicorp-vault/"
 
   ssh_user = var.server.user
@@ -10,6 +10,6 @@ module "hashicorp_vault_staging" {
   hashicorp_vault_domain    = var.hashicorp_vault_domain
   environment               = var.hashicorp_vault_env
   ip_address                = var.hashicorp_vault_ip_address
- 
-  depends_on = [ module.cert_manager_cloudflare ]
+
+  depends_on = [module.cert_manager_cloudflare]
 }

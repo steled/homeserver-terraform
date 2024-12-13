@@ -190,8 +190,8 @@ variable "rsync_src_folder_path" {
 variable "server" {
   description = "machine which will run the control plane"
   type = object({
-    host = string,
-    user = string,
+    host        = string,
+    user        = string,
     private_key = string,
   })
 }

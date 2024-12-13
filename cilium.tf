@@ -5,7 +5,7 @@
 # }
 
 resource "kubectl_manifest" "ciliumloadbalancerippool" {
-    yaml_body = <<YAML
+  yaml_body = <<YAML
 apiVersion: cilium.io/v2alpha1
 kind: CiliumLoadBalancerIPPool
 metadata:
@@ -20,7 +20,7 @@ YAML
 }
 
 resource "kubectl_manifest" "ciliuml2announcementpolicy" {
-    yaml_body = <<YAML
+  yaml_body = <<YAML
 apiVersion: "cilium.io/v2alpha1"
 kind: CiliumL2AnnouncementPolicy
 metadata:
