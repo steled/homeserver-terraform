@@ -27,12 +27,17 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_apprise"></a> [apprise](#module\_apprise) | ../terraformmodules/apprise/ | n/a |
-| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.6 |
-| <a name="module_hashicorp_vault"></a> [hashicorp\_vault](#module\_hashicorp\_vault) | git@github.com:steled/terraformmodules.git//hashicorp-vault | v0.6 |
-| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.6 |
-| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.6 |
-| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.6 |
+| <a name="module_apprise"></a> [apprise](#module\_apprise) | git@github.com:steled/terraformmodules.git//apprise | v0.7 |
+| <a name="module_authentik"></a> [authentik](#module\_authentik) | git@github.com:steled/terraformmodules.git//authentik | v0.7 |
+| <a name="module_authentik_applications"></a> [authentik\_applications](#module\_authentik\_applications) | ./authentik_applications/ | n/a |
+| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.7 |
+| <a name="module_hashicorp_vault"></a> [hashicorp\_vault](#module\_hashicorp\_vault) | git@github.com:steled/terraformmodules.git//hashicorp-vault | v0.7 |
+| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.7 |
+| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.7 |
+| <a name="module_longhorn"></a> [longhorn](#module\_longhorn) | git@github.com:steled/terraformmodules.git//longhorn | v0.7 |
+| <a name="module_minio"></a> [minio](#module\_minio) | git@github.com:steled/terraformmodules.git//minio | v0.7 |
+| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.7 |
+| <a name="module_victoriametrics"></a> [victoriametrics](#module\_victoriametrics) | git@github.com:steled/terraformmodules.git//victoriametrics | v0.7 |
 
 ## Resources
 
@@ -49,6 +54,18 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_apprise_api_htpasswd_secret"></a> [apprise\_api\_htpasswd\_secret](#input\_apprise\_api\_htpasswd\_secret) | .htpasswd secret for Apprise API | `string` | n/a | yes |
+| <a name="input_apprise_domain"></a> [apprise\_domain](#input\_apprise\_domain) | Domain for Apprise ingress prd | `string` | n/a | yes |
+| <a name="input_apprise_env_prd"></a> [apprise\_env\_prd](#input\_apprise\_env\_prd) | Environment for Apprise prd | `string` | n/a | yes |
+| <a name="input_authentik_bootstrap_email"></a> [authentik\_bootstrap\_email](#input\_authentik\_bootstrap\_email) | Bootstrap email for Authentik prd | `string` | n/a | yes |
+| <a name="input_authentik_bootstrap_password"></a> [authentik\_bootstrap\_password](#input\_authentik\_bootstrap\_password) | Bootstrap password for Authentik prd | `string` | n/a | yes |
+| <a name="input_authentik_bootstrap_token"></a> [authentik\_bootstrap\_token](#input\_authentik\_bootstrap\_token) | Bootstrap token for Authentik prd | `string` | n/a | yes |
+| <a name="input_authentik_domains"></a> [authentik\_domains](#input\_authentik\_domains) | Domains for Authentik ingress prd | `string` | n/a | yes |
+| <a name="input_authentik_env_prd"></a> [authentik\_env\_prd](#input\_authentik\_env\_prd) | Environment for Authentik prd | `string` | n/a | yes |
+| <a name="input_authentik_grafana_client_id"></a> [authentik\_grafana\_client\_id](#input\_authentik\_grafana\_client\_id) | n/a | `string` | n/a | yes |
+| <a name="input_authentik_grafana_client_secret"></a> [authentik\_grafana\_client\_secret](#input\_authentik\_grafana\_client\_secret) | n/a | `string` | n/a | yes |
+| <a name="input_authentik_postgresql_password"></a> [authentik\_postgresql\_password](#input\_authentik\_postgresql\_password) | PostgreSQL password for Authentik prd | `string` | n/a | yes |
+| <a name="input_authentik_secret_key"></a> [authentik\_secret\_key](#input\_authentik\_secret\_key) | Secret key for Authentik prd | `string` | n/a | yes |
 | <a name="input_cert_manager_email"></a> [cert\_manager\_email](#input\_cert\_manager\_email) | Email for cert-mnanager | `string` | n/a | yes |
 | <a name="input_cilium_cidr"></a> [cilium\_cidr](#input\_cilium\_cidr) | CIDR range for Cilium loadbalancer IP pool | `string` | n/a | yes |
 | <a name="input_cloudflare_api_token"></a> [cloudflare\_api\_token](#input\_cloudflare\_api\_token) | Cloudflare API token for DNS settings | `string` | n/a | yes |
@@ -63,6 +80,18 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_jdownloader_env_jd_devicename"></a> [jdownloader\_env\_jd\_devicename](#input\_jdownloader\_env\_jd\_devicename) | n/a | `string` | n/a | yes |
 | <a name="input_jdownloader_env_jd_email"></a> [jdownloader\_env\_jd\_email](#input\_jdownloader\_env\_jd\_email) | n/a | `string` | n/a | yes |
 | <a name="input_jdownloader_env_jd_password"></a> [jdownloader\_env\_jd\_password](#input\_jdownloader\_env\_jd\_password) | n/a | `string` | n/a | yes |
+| <a name="input_longhorn_domain_prd"></a> [longhorn\_domain\_prd](#input\_longhorn\_domain\_prd) | Domain for Longhorn prd | `string` | n/a | yes |
+| <a name="input_longhorn_env_prd"></a> [longhorn\_env\_prd](#input\_longhorn\_env\_prd) | Environment for Longhorn prd | `string` | n/a | yes |
+| <a name="input_minio_console_ingress_domains_prd"></a> [minio\_console\_ingress\_domains\_prd](#input\_minio\_console\_ingress\_domains\_prd) | Domains for MinIO console ingress prd | `string` | n/a | yes |
+| <a name="input_minio_env_prd"></a> [minio\_env\_prd](#input\_minio\_env\_prd) | Environment for MinIO prd | `string` | n/a | yes |
+| <a name="input_minio_ingress_domains_prd"></a> [minio\_ingress\_domains\_prd](#input\_minio\_ingress\_domains\_prd) | Domains for MinIO ingress prd | `string` | n/a | yes |
+| <a name="input_minio_rootPassword"></a> [minio\_rootPassword](#input\_minio\_rootPassword) | root password for MinIO | `string` | n/a | yes |
+| <a name="input_minio_rootUser"></a> [minio\_rootUser](#input\_minio\_rootUser) | root user for MinIO | `string` | n/a | yes |
+| <a name="input_minio_user1_accessKey"></a> [minio\_user1\_accessKey](#input\_minio\_user1\_accessKey) | Access key for MinIO user1 | `string` | n/a | yes |
+| <a name="input_minio_user1_name"></a> [minio\_user1\_name](#input\_minio\_user1\_name) | User name for MinIO user1 | `string` | n/a | yes |
+| <a name="input_minio_user1_password"></a> [minio\_user1\_password](#input\_minio\_user1\_password) | User password for MinIO user1 | `string` | n/a | yes |
+| <a name="input_minio_user1_policy"></a> [minio\_user1\_policy](#input\_minio\_user1\_policy) | User policy for MinIO user1 | `string` | n/a | yes |
+| <a name="input_minio_user1_secretKey"></a> [minio\_user1\_secretKey](#input\_minio\_user1\_secretKey) | Secret key for MinIO user1 | `string` | n/a | yes |
 | <a name="input_nextcloud_admin_password"></a> [nextcloud\_admin\_password](#input\_nextcloud\_admin\_password) | Admin password for Nextcloud | `string` | n/a | yes |
 | <a name="input_nextcloud_admin_username"></a> [nextcloud\_admin\_username](#input\_nextcloud\_admin\_username) | Admin username for Nextcloud | `string` | n/a | yes |
 | <a name="input_nextcloud_mail_domain"></a> [nextcloud\_mail\_domain](#input\_nextcloud\_mail\_domain) | n/a | `string` | n/a | yes |
@@ -84,6 +113,14 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_rsync_username"></a> [rsync\_username](#input\_rsync\_username) | Username for rsync cronjob | `string` | n/a | yes |
 | <a name="input_server"></a> [server](#input\_server) | machine which will run the control plane | <pre>object({<br/>    host        = string,<br/>    user        = string,<br/>    private_key = string,<br/>  })</pre> | n/a | yes |
 | <a name="input_sftp_ip_address"></a> [sftp\_ip\_address](#input\_sftp\_ip\_address) | IP address for SFTP service | `string` | n/a | yes |
+| <a name="input_victoriametrics_alertmanager_domains"></a> [victoriametrics\_alertmanager\_domains](#input\_victoriametrics\_alertmanager\_domains) | Domains for VictoriaMetrics Alertmanager ingress prd | `string` | n/a | yes |
+| <a name="input_victoriametrics_env_prd"></a> [victoriametrics\_env\_prd](#input\_victoriametrics\_env\_prd) | Environment for VictoriaMetrics prd | `string` | n/a | yes |
+| <a name="input_victoriametrics_grafana_admin_password"></a> [victoriametrics\_grafana\_admin\_password](#input\_victoriametrics\_grafana\_admin\_password) | admin password for VictoriaMetrics | `string` | n/a | yes |
+| <a name="input_victoriametrics_grafana_admin_user"></a> [victoriametrics\_grafana\_admin\_user](#input\_victoriametrics\_grafana\_admin\_user) | admin user for VictoriaMetrics | `string` | n/a | yes |
+| <a name="input_victoriametrics_grafana_domains"></a> [victoriametrics\_grafana\_domains](#input\_victoriametrics\_grafana\_domains) | Domains for VictoriaMetrics Grafana ingress prd | `string` | n/a | yes |
+| <a name="input_victoriametrics_vmagent_domains"></a> [victoriametrics\_vmagent\_domains](#input\_victoriametrics\_vmagent\_domains) | Domains for VictoriaMetrics VMAgent ingress prd | `string` | n/a | yes |
+| <a name="input_victoriametrics_vmalert_domains"></a> [victoriametrics\_vmalert\_domains](#input\_victoriametrics\_vmalert\_domains) | Domains for VictoriaMetrics VMAlert ingress prd | `string` | n/a | yes |
+| <a name="input_victoriametrics_vmsingle_domains"></a> [victoriametrics\_vmsingle\_domains](#input\_victoriametrics\_vmsingle\_domains) | Domains for VictoriaMetrics VMSingle ingress prd | `string` | n/a | yes |
 
 ## Outputs
 
