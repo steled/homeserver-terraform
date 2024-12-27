@@ -18,10 +18,11 @@ module "authentik" {
 module "authentik_applications" {
   source = "./authentik_applications/"
 
-  token                 = var.authentik_bootstrap_token
-  grafana_client_id     = var.authentik_grafana_client_id
-  grafana_client_secret = var.authentik_grafana_client_secret
-  authentik_url         = var.authentik_url
+  token                         = var.authentik_bootstrap_token
+  grafana_client_id             = var.authentik_grafana_client_id
+  grafana_client_secret         = var.authentik_grafana_client_secret
+  authentik_url                 = var.authentik_url
+  grafana_allowed_redirect_uris = var.grafana_allowed_redirect_uris
 
   # depends_on = [module.authentik]
 }
