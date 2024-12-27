@@ -21,6 +21,7 @@ module "authentik_applications" {
   token                 = var.authentik_bootstrap_token
   grafana_client_id     = var.authentik_grafana_client_id
   grafana_client_secret = var.authentik_grafana_client_secret
+  authentik_url         = var.authentik_url
 
   # depends_on = [module.authentik]
 }
