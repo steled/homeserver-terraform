@@ -19,12 +19,12 @@ data "authentik_property_mapping_provider_scope" "scope-openid" {
 }
 
 resource "authentik_provider_oauth2" "grafana" {
-  name          = "Grafana"
-  client_id     = var.grafana_client_id
+  name      = "Grafana"
+  client_id = var.grafana_client_id
 
   client_secret = var.grafana_client_secret
 
-  authorization_flow  = data.authentik_flow.default-provider-authorization-implicit-consent.id
+  authorization_flow = data.authentik_flow.default-provider-authorization-implicit-consent.id
 
   invalidation_flow = data.authentik_flow.default-provider-invalidation-flow.id
 
@@ -49,13 +49,13 @@ resource "authentik_application" "grafana" {
 }
 
 resource "authentik_group" "grafana_admins" {
-  name    = "Grafana Admins"
+  name = "Grafana Admins"
 }
 
 resource "authentik_group" "grafana_editors" {
-  name    = "Grafana Editors"
+  name = "Grafana Editors"
 }
 
 resource "authentik_group" "grafana_viewers" {
-  name    = "Grafana Viewers"
+  name = "Grafana Viewers"
 }
