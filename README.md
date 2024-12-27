@@ -30,8 +30,8 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="module_apprise"></a> [apprise](#module\_apprise) | ../terraformmodules/apprise/ | n/a |
 | <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.6 |
 | <a name="module_hashicorp_vault"></a> [hashicorp\_vault](#module\_hashicorp\_vault) | git@github.com:steled/terraformmodules.git//hashicorp-vault | v0.6 |
-| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.5 |
-| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.5 |
+| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.6 |
+| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.6 |
 | <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.6 |
 
 ## Resources
