@@ -1,6 +1,6 @@
 module "apprise" {
-  # source = "git@github.com:steled/terraformmodules.git//authentik?ref=v0.5"
-  source = "../terraformmodules/apprise/"
+  source = "git@github.com:steled/terraformmodules.git//authentik?ref=v0.7"
+  # source = "../terraformmodules/apprise/"
 
   # renovate: datasource=docker depName=apprise packageName=caronc/apprise
   apprise_version             = "1.1.6" # check version here: https://registry.hub.docker.com/r/caronc/apprise/tags
