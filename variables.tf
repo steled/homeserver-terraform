@@ -348,6 +348,14 @@ variable "authentik_grafana_client_secret" {
   type = string
 }
 
+variable "authentik_url" {
+  type = string
+}
+
+variable "grafana_allowed_redirect_uris" {
+  type = string
+}
+
 variable "apprise_api_htpasswd_secret" {
   type        = string
   description = ".htpasswd secret for Apprise API"
