@@ -6,8 +6,20 @@
   "dependencyDashboard": true,
   "labels": ["dependencies"],
   "enabledManagers": [
+    "custom.regex",
     "github-actions",
     "terraform"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "\\.tfvars$"
+      ],
+      "matchStrings": [
+        "\\s*# renovate: datasource=(?<datasource>[a-z-.]+?) depName=(?<depName>[^\\s]+?)(?: (?:packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s+[A-Za-z0-9_]+?_(VERSION|version)\\s*:*\\??=\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
+      ]
+    }
   ],
   "github-actions": {
     "fileMatch": [
@@ -24,11 +36,11 @@
   },
   "packageRules": [
     {
-      "matchManagers": ["github-actions", "terraform"],
+      "matchManagers": ["custom.regex", "github-actions", "terraform"],
       "separateMinorPatch": true
     },
     {
-      "matchManagers": ["github-actions", "terraform"],
+      "matchManagers": ["custom.regex", "github-actions", "terraform"],
       "matchUpdateTypes": ["patch"],
       "automerge": true
     }
