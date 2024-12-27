@@ -9,7 +9,8 @@ resource "kubernetes_secret_v1" "cloudflare_dyndns_secret" {
       AUTH_KEY="${var.cloudflare_api_token}"
       dnsrecord1=${var.cloudflare_dnsrecord[0]}
       dnsrecord2=${var.cloudflare_dnsrecord[1]}
-      dnsrecords=("dnsrecord1" "dnsrecord2")
+      dnsrecord3=${var.cloudflare_dnsrecord[2]}
+      dnsrecords=("dnsrecord1" "dnsrecord2" "dnsrecord3")
       DNS_ZONE_ID=${var.cloudflare_dns_zone_id}
       EOF
   }
