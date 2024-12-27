@@ -208,3 +208,165 @@ variable "sftp_ip_address" {
 #   })
 #   default = {}
 # }
+
+variable "longhorn_domain_prd" {
+  type        = string
+  description = "Domain for Longhorn prd"
+}
+
+variable "longhorn_env_prd" {
+  type        = string
+  description = "Environment for Longhorn prd"
+}
+
+variable "minio_ingress_domains_prd" {
+  type        = string
+  description = "Domains for MinIO ingress prd"
+}
+
+variable "minio_console_ingress_domains_prd" {
+  type        = string
+  description = "Domains for MinIO console ingress prd"
+}
+
+variable "minio_env_prd" {
+  type        = string
+  description = "Environment for MinIO prd"
+}
+
+variable "minio_rootUser" {
+  type        = string
+  description = "root user for MinIO"
+}
+
+variable "minio_rootPassword" {
+  type        = string
+  description = "root password for MinIO"
+}
+
+variable "minio_user1_name" {
+  type        = string
+  description = "User name for MinIO user1"
+}
+
+variable "minio_user1_password" {
+  type        = string
+  description = "User password for MinIO user1"
+}
+
+variable "minio_user1_policy" {
+  type        = string
+  description = "User policy for MinIO user1"
+}
+
+variable "minio_user1_secretKey" {
+  type        = string
+  description = "Secret key for MinIO user1"
+}
+
+variable "minio_user1_accessKey" {
+  type        = string
+  description = "Access key for MinIO user1"
+}
+
+variable "victoriametrics_vmsingle_domains" {
+  type        = string
+  description = "Domains for VictoriaMetrics VMSingle ingress prd"
+}
+variable "victoriametrics_alertmanager_domains" {
+  type        = string
+  description = "Domains for VictoriaMetrics Alertmanager ingress prd"
+}
+variable "victoriametrics_vmalert_domains" {
+  type        = string
+  description = "Domains for VictoriaMetrics VMAlert ingress prd"
+}
+variable "victoriametrics_vmagent_domains" {
+  type        = string
+  description = "Domains for VictoriaMetrics VMAgent ingress prd"
+}
+variable "victoriametrics_grafana_domains" {
+  type        = string
+  description = "Domains for VictoriaMetrics Grafana ingress prd"
+}
+
+variable "victoriametrics_env_prd" {
+  type        = string
+  description = "Environment for VictoriaMetrics prd"
+}
+
+variable "victoriametrics_grafana_admin_user" {
+  type        = string
+  description = "admin user for VictoriaMetrics"
+}
+
+variable "victoriametrics_grafana_admin_password" {
+  type        = string
+  description = "admin password for VictoriaMetrics"
+}
+
+variable "authentik_env_prd" {
+  type        = string
+  description = "Environment for Authentik prd"
+}
+
+variable "authentik_domains" {
+  type        = string
+  description = "Domains for Authentik ingress prd"
+}
+
+variable "authentik_secret_key" {
+  type        = string
+  description = "Secret key for Authentik prd"
+}
+
+variable "authentik_postgresql_password" {
+  type        = string
+  description = "PostgreSQL password for Authentik prd"
+}
+
+variable "authentik_bootstrap_password" {
+  type        = string
+  description = "Bootstrap password for Authentik prd"
+}
+
+variable "authentik_bootstrap_token" {
+  type        = string
+  description = "Bootstrap token for Authentik prd"
+}
+
+variable "authentik_bootstrap_email" {
+  type        = string
+  description = "Bootstrap email for Authentik prd"
+}
+
+variable "authentik_grafana_client_id" {
+  type = string
+}
+
+variable "authentik_grafana_client_secret" {
+  type = string
+}
+
+variable "authentik_url" {
+  type = string
+}
+
+variable "grafana_allowed_redirect_uris" {
+  type = string
+}
+
+variable "apprise_api_htpasswd_secret" {
+  type        = string
+  description = ".htpasswd secret for Apprise API"
+}
+
+variable "apprise_env_prd" {
+  type        = string
+  description = "Environment for Apprise prd"
+}
+
+variable "apprise_domain" {
+  type        = string
+  description = "Domain for Apprise ingress prd"
+}

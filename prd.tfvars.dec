@@ -1,37 +1,80 @@
 ## General
-cert_manager_email             = "<REDACTED>"
-cilium_cidr                    = "<REDACTED>"
+cert_manager_email = "<REDACTED>"
+cilium_cidr        = "<REDACTED>"
 # ingress_ip_address             = "<REDACTED>"
-sftp_ip_address                = "<REDACTED>"
-server                         = {
+sftp_ip_address = "<REDACTED>"
+server = {
   host        = "<REDACTED>"
   user        = "<REDACTED>"
   private_key = "<REDACTED>"
 }
 
 ## Cloudflare
-cloudflare_api_token           = "<REDACTED>"
-cloudflare_dns_zone_id         = "<REDACTED>"
-cloudflare_dnsrecord           = [
+cloudflare_api_token   = "<REDACTED>"
+cloudflare_dns_zone_id = "<REDACTED>"
+cloudflare_dnsrecord = [
+  "(\"<REDACTED>\" \"<REDACTED>\")",
   "(\"<REDACTED>\" \"<REDACTED>\")",
   "(\"<REDACTED>\" \"<REDACTED>\")",
 ]
 # duckdns_webhook_ip_address = "<REDACTED>"
 
 ## Hashicorp Vault
-hashicorp_vault_domain         = "<REDACTED>"
-hashicorp_vault_env            = "<REDACTED>"
-hashicorp_vault_ip_address     = "<REDACTED>"
+hashicorp_vault_domain     = "<REDACTED>"
+hashicorp_vault_env        = "<REDACTED>"
+hashicorp_vault_ip_address = "<REDACTED>"
 
 ## JDownloader
-jdownloader_env_jd_devicename  = "<REDACTED>"
-jdownloader_env_jd_email       = "<REDACTED>"
-jdownloader_env_jd_password    = "<REDACTED>"
+jdownloader_env_jd_devicename = "<REDACTED>"
+jdownloader_env_jd_email      = "<REDACTED>"
+jdownloader_env_jd_password   = "<REDACTED>"
+
+## Apprise
+apprise_api_htpasswd_secret = "<REDACTED>"
+apprise_env_prd             = "<REDACTED>"
+apprise_domain              = "<REDACTED>"
+
+## Authentik
+authentik_env_prd               = "<REDACTED>"
+authentik_domains               = "<REDACTED>"
+authentik_secret_key            = "<REDACTED>"
+authentik_postgresql_password   = "<REDACTED>"
+authentik_bootstrap_password    = "<REDACTED>"
+authentik_bootstrap_token       = "<REDACTED>"
+authentik_bootstrap_email       = "<REDACTED>"
+authentik_grafana_client_id     = "<REDACTED>"
+authentik_grafana_client_secret = "<REDACTED>"
+
+## Longhorn
+longhorn_domain_prd = "<REDACTED>"
+longhorn_env_prd    = "<REDACTED>"
+
+## VictoriaMetrics
+victoriametrics_vmsingle_domains      = "<REDACTED>"
+victoriametrics_alertmanager_domains  = "<REDACTED>"
+victoriametrics_vmalert_domains       = "<REDACTED>"
+victoriametrics_vmagent_domains       = "<REDACTED>"
+victoriametrics_grafana_domains       = "<REDACTED>"
+victoriametrics_env_prd                = "<REDACTED>"
+victoriametrics_grafana_admin_user     = "<REDACTED>"
+victoriametrics_grafana_admin_password = "<REDACTED>"
+
+## MinIO
+minio_ingress_domains_prd         = "<REDACTED>"
+minio_console_ingress_domains_prd = "<REDACTED>"
+minio_env_prd                     = "<REDACTED>"
+minio_rootUser                    = "<REDACTED>"
+minio_rootPassword                = "<REDACTED>"
+minio_user1_name                  = "<REDACTED>"
+minio_user1_password              = "<REDACTED>"
+minio_user1_policy                = "<REDACTED>"
+minio_user1_secretKey             = "<REDACTED>"
+minio_user1_accessKey             = "<REDACTED>"
 
 ## Hassio
-hassio_domain                  = "<REDACTED>"
-hassio_ip_address              = "<REDACTED>"
-hassio_env                     = "<REDACTED>"
+hassio_domain     = "<REDACTED>"
+hassio_ip_address = "<REDACTED>"
+hassio_env        = "<REDACTED>"
 
 ## Nextcloud
 nextcloud_admin_password       = "<REDACTED>"
@@ -55,7 +98,7 @@ nextcloud_smtp_username        = "<REDACTED>"
 # nextcloud_stg_mail_fromaddress = "<REDACTED>"
 
 ## rsync
-rsync_dst_folder_path          = "<REDACTED>"
-rsync_dst_ip_address           = "<REDACTED>"
-rsync_username                 = "<REDACTED>"
-rsync_src_folder_path          = "<REDACTED>"
+rsync_dst_folder_path = "<REDACTED>"
+rsync_dst_ip_address  = "<REDACTED>"
+rsync_username        = "<REDACTED>"
+rsync_src_folder_path = "<REDACTED>"
