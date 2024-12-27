@@ -66,11 +66,13 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_authentik_grafana_client_secret"></a> [authentik\_grafana\_client\_secret](#input\_authentik\_grafana\_client\_secret) | n/a | `string` | n/a | yes |
 | <a name="input_authentik_postgresql_password"></a> [authentik\_postgresql\_password](#input\_authentik\_postgresql\_password) | PostgreSQL password for Authentik prd | `string` | n/a | yes |
 | <a name="input_authentik_secret_key"></a> [authentik\_secret\_key](#input\_authentik\_secret\_key) | Secret key for Authentik prd | `string` | n/a | yes |
+| <a name="input_authentik_url"></a> [authentik\_url](#input\_authentik\_url) | n/a | `string` | n/a | yes |
 | <a name="input_cert_manager_email"></a> [cert\_manager\_email](#input\_cert\_manager\_email) | Email for cert-mnanager | `string` | n/a | yes |
 | <a name="input_cilium_cidr"></a> [cilium\_cidr](#input\_cilium\_cidr) | CIDR range for Cilium loadbalancer IP pool | `string` | n/a | yes |
 | <a name="input_cloudflare_api_token"></a> [cloudflare\_api\_token](#input\_cloudflare\_api\_token) | Cloudflare API token for DNS settings | `string` | n/a | yes |
 | <a name="input_cloudflare_dns_zone_id"></a> [cloudflare\_dns\_zone\_id](#input\_cloudflare\_dns\_zone\_id) | Cloudflare DNS zone ID | `string` | n/a | yes |
 | <a name="input_cloudflare_dnsrecord"></a> [cloudflare\_dnsrecord](#input\_cloudflare\_dnsrecord) | DNS records with IDs | `list(string)` | n/a | yes |
+| <a name="input_grafana_allowed_redirect_uris"></a> [grafana\_allowed\_redirect\_uris](#input\_grafana\_allowed\_redirect\_uris) | n/a | `string` | n/a | yes |
 | <a name="input_hashicorp_vault_domain"></a> [hashicorp\_vault\_domain](#input\_hashicorp\_vault\_domain) | Domain for Hashicorp Vault | `string` | n/a | yes |
 | <a name="input_hashicorp_vault_env"></a> [hashicorp\_vault\_env](#input\_hashicorp\_vault\_env) | Environment for Hashicorp Vault | `string` | n/a | yes |
 | <a name="input_hashicorp_vault_ip_address"></a> [hashicorp\_vault\_ip\_address](#input\_hashicorp\_vault\_ip\_address) | IP address for Hashicorp Vault | `string` | n/a | yes |
