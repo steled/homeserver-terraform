@@ -5,13 +5,13 @@ module "jdownloader" {
   ssh_user = var.server.user
   ssh_host = var.server.host
 
+  # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
+  sftp_version          = "https://github.com/steled/sftp-server/archive/refs/tags/v0.3.11.tar.gz" # check version here: https://github.com/steled/sftp-server/tags
   namespace             = "jd-sftp"
   env_jd_devicename     = var.jdownloader_env_jd_devicename
   env_jd_email          = var.jdownloader_env_jd_email
   env_jd_password       = var.jdownloader_env_jd_password
   sftp_values_yaml      = "${path.root}/sftp-values.yaml"
-  # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
-  sftp_version          = "https://github.com/steled/sftp-server/archive/refs/tags/v0.3.11.tar.gz" # check version here: https://github.com/steled/sftp-server/tags
   sftp_ip_address       = var.sftp_ip_address
   rsync_upload_id_rsa   = "${path.root}/files/ssh-keys/upload.id_rsa"
   rsync_dst_ip_address  = var.rsync_dst_ip_address
