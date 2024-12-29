@@ -1,5 +1,5 @@
 module "apprise" {
-  source = "git@github.com:steled/terraformmodules.git//apprise?ref=v0.8"
+  source = "git@github.com:steled/terraformmodules.git//apprise?ref=v0.9"
   # source = "../terraformmodules/apprise/"
 
   # renovate: datasource=docker depName=apprise packageName=caronc/apprise
