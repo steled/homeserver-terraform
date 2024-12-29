@@ -1,12 +1,16 @@
+locals {
+  # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
+  sftp_version = "v0.3.11"
+}
+
 module "jdownloader" {
-  source = "git@github.com:steled/terraformmodules.git//jdownloader?ref=v0.8"
+  source = "git@github.com:steled/terraformmodules.git//jdownloader?ref=v0.9"
   # source = "../terraformmodules/jdownloader/"
 
   ssh_user = var.server.user
   ssh_host = var.server.host
 
-  # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
-  sftp_version          = "https://github.com/steled/sftp-server/archive/refs/tags/v0.3.12.tar.gz" # check version here: https://github.com/steled/sftp-server/tags
+  sftp_chart            = "https://github.com/steled/sftp-server/archive/refs/tags/${local.sftp_version}.tar.gz" # check version here: https://github.com/steled/sftp-server/tags
   namespace             = "jd-sftp"
   env_jd_devicename     = var.jdownloader_env_jd_devicename
   env_jd_email          = var.jdownloader_env_jd_email
