@@ -6,7 +6,7 @@ module "jdownloader" {
   ssh_host = var.server.host
 
   # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
-  sftp_version          = "https://github.com/steled/sftp-server/archive/refs/tags/v0.3.11.tar.gz" # check version here: https://github.com/steled/sftp-server/tags
+  sftp_version          = "v0.3.12" # check version here: https://github.com/steled/sftp-server/tags
   namespace             = "jd-sftp"
   env_jd_devicename     = var.jdownloader_env_jd_devicename
   env_jd_email          = var.jdownloader_env_jd_email
