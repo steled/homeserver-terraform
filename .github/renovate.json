@@ -22,12 +22,12 @@
     },
     {
       "customType": "regex",
-      "datasourceTemplate": "custom.minio",
+      "datasourceTemplate": "helm",
       "fileMatch": [
         "(^|/)minio\\.tf$"
       ],
       "matchStrings": [
-        "#\\s*renovate:\\s*(datasource=(?<datasource>.*?) )?depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\s*\\w*:\\s*(?<currentValue>.*)\\s"
+        "\\s*# renovate: depName=(?<depName>[^\\s]+?)(?: (?:packageName)=(?<packageName>[^\\s]+?))?(?: versioning=(?<versioning>[^\\s]+?))?(?: extractVersion=(?<extractVersion>[^\\s]+?))?(?: registryUrl=(?<registryUrl>[^\\s]+?))?\\s+[A-Za-z0-9_]+?_(VERSION|version)\\s*:*\\??=\\s*[\"']?(?<currentValue>.+?)[\"']?\\s"
       ]
     }
   ],
@@ -43,12 +43,6 @@
       "\\.tf$"
     ],
     "pinDigests": false
-  },
-  "customDatasources": {
-    "minio": {
-      "defaultRegistryUrlTemplate": "https://github.com/minio/minio/tree/master/helm-releases",
-      "format": "html"
-    }
   },
   "packageRules": [
     {
