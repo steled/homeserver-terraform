@@ -27,20 +27,20 @@ variable "cloudflare_dnsrecord" {
 #   description = "IP address for duckdns webhook service"
 # }
 
-variable "hashicorp_vault_domain" {
-  type        = string
-  description = "Domain for Hashicorp Vault"
-}
+# variable "hashicorp_vault_domain" {
+#   type        = string
+#   description = "Domain for Hashicorp Vault"
+# }
 
-variable "hashicorp_vault_env" {
-  type        = string
-  description = "Environment for Hashicorp Vault"
-}
+# variable "hashicorp_vault_env" {
+#   type        = string
+#   description = "Environment for Hashicorp Vault"
+# }
 
-variable "hashicorp_vault_ip_address" {
-  type        = string
-  description = "IP address for Hashicorp Vault"
-}
+# variable "hashicorp_vault_ip_address" {
+#   type        = string
+#   description = "IP address for Hashicorp Vault"
+# }
 
 variable "hassio_domain" {
   type        = string
@@ -305,40 +305,40 @@ variable "victoriametrics_grafana_admin_password" {
   description = "admin password for VictoriaMetrics"
 }
 
-variable "authentik_env_prd" {
-  type        = string
-  description = "Environment for Authentik prd"
-}
+# variable "authentik_env_prd" {
+#   type        = string
+#   description = "Environment for Authentik prd"
+# }
 
-variable "authentik_domains" {
-  type        = string
-  description = "Domains for Authentik ingress prd"
-}
+# variable "authentik_domains" {
+#   type        = string
+#   description = "Domains for Authentik ingress prd"
+# }
 
-variable "authentik_secret_key" {
-  type        = string
-  description = "Secret key for Authentik prd"
-}
+# variable "authentik_secret_key" {
+#   type        = string
+#   description = "Secret key for Authentik prd"
+# }
 
-variable "authentik_postgresql_password" {
-  type        = string
-  description = "PostgreSQL password for Authentik prd"
-}
+# variable "authentik_postgresql_password" {
+#   type        = string
+#   description = "PostgreSQL password for Authentik prd"
+# }
 
-variable "authentik_bootstrap_password" {
-  type        = string
-  description = "Bootstrap password for Authentik prd"
-}
+# variable "authentik_bootstrap_password" {
+#   type        = string
+#   description = "Bootstrap password for Authentik prd"
+# }
 
-variable "authentik_bootstrap_token" {
-  type        = string
-  description = "Bootstrap token for Authentik prd"
-}
+# variable "authentik_bootstrap_token" {
+#   type        = string
+#   description = "Bootstrap token for Authentik prd"
+# }
 
-variable "authentik_bootstrap_email" {
-  type        = string
-  description = "Bootstrap email for Authentik prd"
-}
+# variable "authentik_bootstrap_email" {
+#   type        = string
+#   description = "Bootstrap email for Authentik prd"
+# }
 
 variable "authentik_grafana_client_id" {
   type = string
@@ -352,9 +352,9 @@ variable "authentik_url" {
   type = string
 }
 
-variable "grafana_allowed_redirect_uris" {
-  type = string
-}
+# variable "grafana_allowed_redirect_uris" {
+#   type = string
+# }
 
 variable "apprise_api_htpasswd_secret" {
   type        = string
@@ -377,11 +377,11 @@ variable "apprise_config_id" {
 }
 
 variable "telegram_bot_token" {
-  type        = string
+  type = string
   description = "Bot token for Telegram"
 }
 
 variable "telegram_chat_id" {
-  type        = string
+  type = string
   description = "Chat id for Telegram"
 }
