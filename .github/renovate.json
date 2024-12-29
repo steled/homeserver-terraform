@@ -8,6 +8,7 @@
   "enabledManagers": [
     "custom.regex",
     "github-actions",
+    "helmv3",
     "terraform"
   ],
   "customManagers": [
@@ -27,18 +28,20 @@
       "(^|/)action\\.ya?ml$"
     ]
   },
+  "helmv3": {
+    "registryAliases": {
+      "minio": "https://charts.min.io/"
+    },
+    "fileMatch": [
+      "(^|/)minio\\.tf$"
+    ]
+  },
   "terraform": {
     "commitMessageTopic": "Terraform {{depName}}",
     "fileMatch": [
       "\\.tf$"
     ],
     "pinDigests": false
-  },
-  "customDatasources": {
-    "minio": {
-      "defaultRegistryUrlTemplate": "https://github.com/minio/minio/tree/master/helm-releases",
-      "format": "html"
-    }
   },
   "packageRules": [
     {
@@ -59,10 +62,6 @@
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["nextcloud/helm"],
       "extractVersion": "^nextcloud-(?<version>.*)$"
-    },
-    {
-      "matchDatasources": ["custom.minio"],
-      "extractVersion": "^minio-(?<version>.+)\\.tgz$"
     }
   ]
 }
