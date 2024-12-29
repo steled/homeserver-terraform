@@ -33,6 +33,7 @@ jdownloader_env_jd_password   = "<REDACTED>"
 apprise_api_htpasswd_secret = "<REDACTED>"
 apprise_env_prd             = "<REDACTED>"
 apprise_domain              = "<REDACTED>"
+apprise_config_id           = "<REDACTED>"
 
 ## Authentik
 authentik_env_prd               = "<REDACTED>"
@@ -44,17 +45,23 @@ authentik_bootstrap_token       = "<REDACTED>"
 authentik_bootstrap_email       = "<REDACTED>"
 authentik_grafana_client_id     = "<REDACTED>"
 authentik_grafana_client_secret = "<REDACTED>"
+authentik_url                   = "<REDACTED>"
+grafana_allowed_redirect_uris   = "<REDACTED>"
 
 ## Longhorn
 longhorn_domain_prd = "<REDACTED>"
 longhorn_env_prd    = "<REDACTED>"
 
+## Telegram
+telegram_bot_token = "<REDACTED>"
+telegram_chat_id   = "<REDACTED>"
+
 ## VictoriaMetrics
-victoriametrics_vmsingle_domains      = "<REDACTED>"
-victoriametrics_alertmanager_domains  = "<REDACTED>"
-victoriametrics_vmalert_domains       = "<REDACTED>"
-victoriametrics_vmagent_domains       = "<REDACTED>"
-victoriametrics_grafana_domains       = "<REDACTED>"
+victoriametrics_vmsingle_domains       = "<REDACTED>"
+victoriametrics_alertmanager_domains   = "<REDACTED>"
+victoriametrics_vmalert_domains        = "<REDACTED>"
+victoriametrics_vmagent_domains        = "<REDACTED>"
+victoriametrics_grafana_domains        = "<REDACTED>"
 victoriametrics_env_prd                = "<REDACTED>"
 victoriametrics_grafana_admin_user     = "<REDACTED>"
 victoriametrics_grafana_admin_password = "<REDACTED>"
