@@ -1,5 +1,5 @@
 module "minio" {
-  source = "git@github.com:steled/terraformmodules.git//minio?ref=v0.7"
+  source = "git@github.com:steled/terraformmodules.git//minio?ref=v0.8"
   # source = "../terraformmodules/minio/"
 
   minio_version             = "5.3.0" # check version here: https://github.com/minio/minio/blob/master/helm/minio/Chart.yaml#L4

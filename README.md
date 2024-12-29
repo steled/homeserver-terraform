@@ -27,17 +27,14 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_apprise"></a> [apprise](#module\_apprise) | git@github.com:steled/terraformmodules.git//apprise | v0.7 |
-| <a name="module_authentik"></a> [authentik](#module\_authentik) | git@github.com:steled/terraformmodules.git//authentik | v0.7 |
-| <a name="module_authentik_applications"></a> [authentik\_applications](#module\_authentik\_applications) | ./authentik_applications/ | n/a |
-| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.7 |
-| <a name="module_hashicorp_vault"></a> [hashicorp\_vault](#module\_hashicorp\_vault) | git@github.com:steled/terraformmodules.git//hashicorp-vault | v0.7 |
-| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.7 |
-| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.7 |
-| <a name="module_longhorn"></a> [longhorn](#module\_longhorn) | git@github.com:steled/terraformmodules.git//longhorn | v0.7 |
-| <a name="module_minio"></a> [minio](#module\_minio) | git@github.com:steled/terraformmodules.git//minio | v0.7 |
-| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.7 |
-| <a name="module_victoriametrics"></a> [victoriametrics](#module\_victoriametrics) | git@github.com:steled/terraformmodules.git//victoriametrics | v0.7 |
+| <a name="module_apprise"></a> [apprise](#module\_apprise) | git@github.com:steled/terraformmodules.git//apprise | v0.8 |
+| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.8 |
+| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.8 |
+| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.8 |
+| <a name="module_longhorn"></a> [longhorn](#module\_longhorn) | git@github.com:steled/terraformmodules.git//longhorn | v0.8 |
+| <a name="module_minio"></a> [minio](#module\_minio) | git@github.com:steled/terraformmodules.git//minio | v0.8 |
+| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.8 |
+| <a name="module_victoriametrics"></a> [victoriametrics](#module\_victoriametrics) | git@github.com:steled/terraformmodules.git//victoriametrics | v0.8 |
 
 ## Resources
 
@@ -55,27 +52,17 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_apprise_api_htpasswd_secret"></a> [apprise\_api\_htpasswd\_secret](#input\_apprise\_api\_htpasswd\_secret) | .htpasswd secret for Apprise API | `string` | n/a | yes |
+| <a name="input_apprise_config_id"></a> [apprise\_config\_id](#input\_apprise\_config\_id) | Config id for Apprise | `string` | n/a | yes |
 | <a name="input_apprise_domain"></a> [apprise\_domain](#input\_apprise\_domain) | Domain for Apprise ingress prd | `string` | n/a | yes |
 | <a name="input_apprise_env_prd"></a> [apprise\_env\_prd](#input\_apprise\_env\_prd) | Environment for Apprise prd | `string` | n/a | yes |
-| <a name="input_authentik_bootstrap_email"></a> [authentik\_bootstrap\_email](#input\_authentik\_bootstrap\_email) | Bootstrap email for Authentik prd | `string` | n/a | yes |
-| <a name="input_authentik_bootstrap_password"></a> [authentik\_bootstrap\_password](#input\_authentik\_bootstrap\_password) | Bootstrap password for Authentik prd | `string` | n/a | yes |
-| <a name="input_authentik_bootstrap_token"></a> [authentik\_bootstrap\_token](#input\_authentik\_bootstrap\_token) | Bootstrap token for Authentik prd | `string` | n/a | yes |
-| <a name="input_authentik_domains"></a> [authentik\_domains](#input\_authentik\_domains) | Domains for Authentik ingress prd | `string` | n/a | yes |
-| <a name="input_authentik_env_prd"></a> [authentik\_env\_prd](#input\_authentik\_env\_prd) | Environment for Authentik prd | `string` | n/a | yes |
 | <a name="input_authentik_grafana_client_id"></a> [authentik\_grafana\_client\_id](#input\_authentik\_grafana\_client\_id) | n/a | `string` | n/a | yes |
 | <a name="input_authentik_grafana_client_secret"></a> [authentik\_grafana\_client\_secret](#input\_authentik\_grafana\_client\_secret) | n/a | `string` | n/a | yes |
-| <a name="input_authentik_postgresql_password"></a> [authentik\_postgresql\_password](#input\_authentik\_postgresql\_password) | PostgreSQL password for Authentik prd | `string` | n/a | yes |
-| <a name="input_authentik_secret_key"></a> [authentik\_secret\_key](#input\_authentik\_secret\_key) | Secret key for Authentik prd | `string` | n/a | yes |
 | <a name="input_authentik_url"></a> [authentik\_url](#input\_authentik\_url) | n/a | `string` | n/a | yes |
 | <a name="input_cert_manager_email"></a> [cert\_manager\_email](#input\_cert\_manager\_email) | Email for cert-mnanager | `string` | n/a | yes |
 | <a name="input_cilium_cidr"></a> [cilium\_cidr](#input\_cilium\_cidr) | CIDR range for Cilium loadbalancer IP pool | `string` | n/a | yes |
 | <a name="input_cloudflare_api_token"></a> [cloudflare\_api\_token](#input\_cloudflare\_api\_token) | Cloudflare API token for DNS settings | `string` | n/a | yes |
 | <a name="input_cloudflare_dns_zone_id"></a> [cloudflare\_dns\_zone\_id](#input\_cloudflare\_dns\_zone\_id) | Cloudflare DNS zone ID | `string` | n/a | yes |
 | <a name="input_cloudflare_dnsrecord"></a> [cloudflare\_dnsrecord](#input\_cloudflare\_dnsrecord) | DNS records with IDs | `list(string)` | n/a | yes |
-| <a name="input_grafana_allowed_redirect_uris"></a> [grafana\_allowed\_redirect\_uris](#input\_grafana\_allowed\_redirect\_uris) | n/a | `string` | n/a | yes |
-| <a name="input_hashicorp_vault_domain"></a> [hashicorp\_vault\_domain](#input\_hashicorp\_vault\_domain) | Domain for Hashicorp Vault | `string` | n/a | yes |
-| <a name="input_hashicorp_vault_env"></a> [hashicorp\_vault\_env](#input\_hashicorp\_vault\_env) | Environment for Hashicorp Vault | `string` | n/a | yes |
-| <a name="input_hashicorp_vault_ip_address"></a> [hashicorp\_vault\_ip\_address](#input\_hashicorp\_vault\_ip\_address) | IP address for Hashicorp Vault | `string` | n/a | yes |
 | <a name="input_hassio_domain"></a> [hassio\_domain](#input\_hassio\_domain) | Domain for Hassio | `string` | n/a | yes |
 | <a name="input_hassio_env"></a> [hassio\_env](#input\_hassio\_env) | Environment for Hassio | `string` | n/a | yes |
 | <a name="input_hassio_ip_address"></a> [hassio\_ip\_address](#input\_hassio\_ip\_address) | IP address for Hassio | `string` | n/a | yes |
@@ -115,6 +102,8 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_rsync_username"></a> [rsync\_username](#input\_rsync\_username) | Username for rsync cronjob | `string` | n/a | yes |
 | <a name="input_server"></a> [server](#input\_server) | machine which will run the control plane | <pre>object({<br/>    host        = string,<br/>    user        = string,<br/>    private_key = string,<br/>  })</pre> | n/a | yes |
 | <a name="input_sftp_ip_address"></a> [sftp\_ip\_address](#input\_sftp\_ip\_address) | IP address for SFTP service | `string` | n/a | yes |
+| <a name="input_telegram_bot_token"></a> [telegram\_bot\_token](#input\_telegram\_bot\_token) | Bot token for Telegram | `string` | n/a | yes |
+| <a name="input_telegram_chat_id"></a> [telegram\_chat\_id](#input\_telegram\_chat\_id) | Chat id for Telegram | `string` | n/a | yes |
 | <a name="input_victoriametrics_alertmanager_domains"></a> [victoriametrics\_alertmanager\_domains](#input\_victoriametrics\_alertmanager\_domains) | Domains for VictoriaMetrics Alertmanager ingress prd | `string` | n/a | yes |
 | <a name="input_victoriametrics_env_prd"></a> [victoriametrics\_env\_prd](#input\_victoriametrics\_env\_prd) | Environment for VictoriaMetrics prd | `string` | n/a | yes |
 | <a name="input_victoriametrics_grafana_admin_password"></a> [victoriametrics\_grafana\_admin\_password](#input\_victoriametrics\_grafana\_admin\_password) | admin password for VictoriaMetrics | `string` | n/a | yes |
