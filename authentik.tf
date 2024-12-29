@@ -2,6 +2,7 @@
 #   source = "git@github.com:steled/terraformmodules.git//authentik?ref=v0.8"
 #   # source = "../terraformmodules/authentik/"
 
+#   # renovate: datasource=github-tags depName=authentik packageName=goauthentik/helm
 #   authentik_version            = "2024.12.0" # check version here: https://github.com/goauthentik/helm/blob/main/charts/authentik/Chart.yaml#L3
 #   kubernetes_namespace_name    = "authentik"
 #   environment                  = var.authentik_env_prd

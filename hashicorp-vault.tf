@@ -5,6 +5,7 @@
 #   ssh_user = var.server.user
 #   ssh_host = var.server.host
 
+#   # renovate: datasource=github-tags depName=hashicorp-vault packageName=hashicorp/vault-helm
 #   hashicorp_vault_version   = "0.28.1" # check version here: https://github.com/hashicorp/vault-helm/blob/main/Chart.yaml#L6
 #   kubernetes_namespace_name = "hashicorp-vault"
 #   hashicorp_vault_domain    = var.hashicorp_vault_domain
