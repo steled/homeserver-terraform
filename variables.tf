@@ -370,3 +370,18 @@ variable "apprise_domain" {
   type        = string
   description = "Domain for Apprise ingress prd"
 }
+
+variable "apprise_config_id" {
+  type        = string
+  description = "Config id for Apprise"
+}
+
+variable "telegram_bot_token" {
+  type = string
+  description = "Bot token for Telegram"
+}
+
+variable "telegram_chat_id" {
+  type = string
+  description = "Chat id for Telegram"
+}
