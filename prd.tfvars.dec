@@ -20,9 +20,9 @@ cloudflare_dnsrecord = [
 # duckdns_webhook_ip_address = "<REDACTED>"
 
 ## Hashicorp Vault
-hashicorp_vault_domain     = "<REDACTED>"
-hashicorp_vault_env        = "<REDACTED>"
-hashicorp_vault_ip_address = "<REDACTED>"
+# hashicorp_vault_domain     = "<REDACTED>"
+# hashicorp_vault_env        = "<REDACTED>"
+# hashicorp_vault_ip_address = "<REDACTED>"
 
 ## JDownloader
 jdownloader_env_jd_devicename = "<REDACTED>"
@@ -36,17 +36,17 @@ apprise_domain              = "<REDACTED>"
 apprise_config_id           = "<REDACTED>"
 
 ## Authentik
-authentik_env_prd               = "<REDACTED>"
-authentik_domains               = "<REDACTED>"
-authentik_secret_key            = "<REDACTED>"
-authentik_postgresql_password   = "<REDACTED>"
-authentik_bootstrap_password    = "<REDACTED>"
-authentik_bootstrap_token       = "<REDACTED>"
-authentik_bootstrap_email       = "<REDACTED>"
+# authentik_env_prd               = "<REDACTED>"
+# authentik_domains               = "<REDACTED>"
+# authentik_secret_key            = "<REDACTED>"
+# authentik_postgresql_password   = "<REDACTED>"
+# authentik_bootstrap_password    = "<REDACTED>"
+# authentik_bootstrap_token       = "<REDACTED>"
+# authentik_bootstrap_email       = "<REDACTED>"
 authentik_grafana_client_id     = "<REDACTED>"
 authentik_grafana_client_secret = "<REDACTED>"
 authentik_url                   = "<REDACTED>"
-grafana_allowed_redirect_uris   = "<REDACTED>"
+# grafana_allowed_redirect_uris   = "<REDACTED>"
 
 ## Longhorn
 longhorn_domain_prd = "<REDACTED>"

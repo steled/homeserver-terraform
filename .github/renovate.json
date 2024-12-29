@@ -36,6 +36,11 @@
   },
   "packageRules": [
     {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["haproxy"],
+      "versioning": "pep440"
+    },
+    {
       "matchManagers": ["custom.regex", "github-actions", "terraform"],
       "separateMinorPatch": true
     },
