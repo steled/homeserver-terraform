@@ -51,7 +51,7 @@
     },
     {
       "matchDatasources": ["github-tags"],
-      "matchPackageNames": ["nextcloud"],
+      "matchPackageNames": ["nextcloud/helm"],
       "extractVersion": "^nextcloud-(?<version>.*)$"
     }
   ]
