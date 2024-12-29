@@ -377,11 +377,11 @@ variable "apprise_config_id" {
 }
 
 variable "telegram_bot_token" {
-  type = string
+  type        = string
   description = "Bot token for Telegram"
 }
 
 variable "telegram_chat_id" {
-  type = string
+  type        = string
   description = "Chat id for Telegram"
 }
