@@ -48,6 +48,11 @@
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["VictoriaMetrics/helm-charts"],
       "extractVersion": "^victoria-metrics-k8s-stack-(?<version>.*)$"
+    },
+    {
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["nextcloud"],
+      "extractVersion": "^nextcloud-(?<version>.*)$"
     }
   ]
 }
