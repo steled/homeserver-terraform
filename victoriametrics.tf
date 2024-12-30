@@ -2,6 +2,7 @@ module "victoriametrics" {
   source = "git@github.com:steled/terraformmodules.git//victoriametrics?ref=v0.9"
   # source = "../terraformmodules/victoriametrics/"
 
+
   # renovate: datasource=docker depName=haproxy packageName=haproxy
   haproxy_version = "3.0.7-alpine3.20" #"3.1.1-alpine3.21" #"alpine3.20" # check version here: https://hub.docker.com/_/haproxy/tags?name=alpine3.20
   # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
