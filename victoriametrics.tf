@@ -2,9 +2,9 @@ module "victoriametrics" {
   source = "git@github.com:steled/terraformmodules.git//victoriametrics?ref=v0.9"
   # source = "../terraformmodules/victoriametrics/"
 
-  # renovate#: depName=haproxy registryUrl=https://registry.hub.docker.com/_/haproxy packageName=haproxy
+
   # renovate: datasource=docker depName=haproxy packageName=haproxy
-  haproxy_version = "3.0.7-alpine3.21" #"3.1.1-alpine3.21" #"alpine3.20" # check version here: https://hub.docker.com/_/haproxy/tags?name=alpine3.20
+  haproxy_version = "3.0.7-alpine3.20" #"3.1.1-alpine3.21" #"alpine3.20" # check version here: https://hub.docker.com/_/haproxy/tags?name=alpine3.20
   # renovate: datasource=github-tags depName=victoriametrics packageName=VictoriaMetrics/helm-charts
   victoriametrics_version   = "0.33.1" # check version here: https://github.com/VictoriaMetrics/helm-charts/blob/master/charts/victoria-metrics-k8s-stack/Chart.yaml#L5
   kubernetes_namespace_name = "victoriametrics"
