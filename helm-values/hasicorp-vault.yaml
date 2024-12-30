@@ -1,0 +1,53 @@
+global:
+  tlsDisable: false
+
+server:
+  # extraEnvironmentVars:
+  #   VAULT_CACERT: /vault/userconfig/vault-server-tls/ca.crt
+  #   VAULT_ADDR: http://127.0.0.1:8200
+  # hostAliases:
+  #   - ip: 127.0.0.1
+  #     hostnames:
+  #       - ${hashicorp_vault_domain}
+  ingress:
+    enabled: true
+    activeService: false
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: dedicated
+      lbipam.cilium.io/ips: ${ip_address}
+    hosts:
+      - host: ${hashicorp_vault_domain}
+        paths:
+          - /
+    ingressClassName: cilium
+    tls:
+      - secretName: hashicorp-vault-tls
+        hosts:
+          - ${hashicorp_vault_domain}
+  # standalone:
+  #   config: |-
+  #     ui = true
+  #     listener "tcp" {
+  #       address = "[::]:8200"
+  #       cluster_address = "[::]:8201"
+  #     }
+  #     storage "file" {
+  #       path = "/vault/data"
+  #     }
+  # volumes:
+  #   - name: userconfig-vault-server-tls
+  #     secret:
+  #       defaultMode: 420
+  #       secretName: hashicorp-vault-tls
+  #       # secretName: hashicorp-vault-server-tls
+  # volumeMounts:
+  #   - mountPath: /vault/userconfig/vault-server-tls
+  #     name: userconfig-vault-server-tls
+  #     readOnly: true
+
+ui:
+  enabled: true
+  # annotations:
+  #   "lbipam.cilium.io/ips": ${ip_address}
+  # serviceType: "LoadBalancer"

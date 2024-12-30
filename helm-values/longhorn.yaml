@@ -1,0 +1,27 @@
+persistence:
+  defaultClassReplicaCount: 1
+  migratable: true
+
+csi:
+  attacherReplicaCount: 1
+  provisionerReplicaCount: 1
+  resizerReplicaCount: 1
+  snapshotterReplicaCount: 1
+
+defaultSettings:
+  defaultReplicaCount: 1
+  orphanAutoDeletion: true
+
+longhornUI:
+  replicas: 1
+
+ingress:
+  enabled: true
+  ingressClassName: cilium
+  host: ${domain}
+  tls: true
+  tlsSecret: longhorn-tls
+  pathType: Prefix
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+    ingress.cilium.io/loadbalancer-mode: shared

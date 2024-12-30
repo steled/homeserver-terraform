@@ -11,6 +11,7 @@
 #   hashicorp_vault_domain    = var.hashicorp_vault_domain
 #   environment               = var.hashicorp_vault_env
 #   ip_address                = var.hashicorp_vault_ip_address
+#   values_yaml                  = "${path.root}/helm-values/hashicorp-vault.yaml"
 
 #   depends_on = [module.cert_manager_cloudflare]
 # }

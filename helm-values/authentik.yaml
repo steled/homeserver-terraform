@@ -1,0 +1,35 @@
+worker:
+  envFrom:
+    - secretRef:
+        name: authentik-secret
+
+authentik:
+  secret_key: "${authentik_secret_key}"
+
+  postgresql:
+    password: "${postgresql_password}"
+
+server:
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: shared
+    ingressClassName: cilium
+    hosts: ${authentik_domains}
+    tls:
+    - secretName: authentik-tls
+      hosts: ${authentik_domains}
+    https: false
+
+postgresql:
+  enabled: true
+  auth:
+    password: "${postgresql_password}"
+  primary:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+
+redis:
+  enabled: true

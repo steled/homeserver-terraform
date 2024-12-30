@@ -7,6 +7,7 @@ module "longhorn" {
   kubernetes_namespace_name = "longhorn"
   domain                    = var.longhorn_domain_prd
   environment               = var.longhorn_env_prd
+  values_yaml               = "${path.root}/helm-values/longhorn.yaml"
 
   depends_on = [module.cert_manager_cloudflare]
 }

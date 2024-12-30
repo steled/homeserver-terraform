@@ -12,6 +12,7 @@
 #   authentik_bootstrap_password = var.authentik_bootstrap_password
 #   authentik_bootstrap_token    = var.authentik_bootstrap_token
 #   authentik_bootstrap_email    = var.authentik_bootstrap_email
+#   values_yaml                  = "${path.root}/helm-values/authentik.yaml"
 
 #   depends_on = [module.cert_manager_cloudflare]
 # }

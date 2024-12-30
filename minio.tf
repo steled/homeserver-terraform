@@ -15,6 +15,7 @@ module "minio" {
   user1_policy              = var.minio_user1_policy
   user1_secretKey           = var.minio_user1_secretKey
   user1_accessKey           = var.minio_user1_accessKey
+  values_yaml               = "${path.root}/helm-values/minio.yaml"
 
   depends_on = [module.cert_manager_cloudflare]
 }
