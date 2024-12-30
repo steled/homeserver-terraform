@@ -1,0 +1,220 @@
+ingress:
+  enabled: true
+  annotations:
+    # kubernetes.io/ingress.class: nginx
+    # cert-manager.io/cluster-issuer: duckdns-letsencrypt-${environment}
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+    ingress.cilium.io/loadbalancer-mode: shared
+    # nginx.ingress.kubernetes.io/enable-cors: "true"
+    # nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+    # nginx.ingress.kubernetes.io/proxy-body-size: 32M
+    # nginx.ingress.kubernetes.io/server-snippet: |-
+    #   proxy_hide_header X-Powered-By;
+    #   server_name ${nextcloud_domain};
+    #   server_tokens off;
+    #   rewrite ^/.well-known/webfinger /index.php/.well-known/webfinger last;
+    #   rewrite ^/.well-known/nodeinfo /index.php/.well-known/nodeinfo last;
+    #   rewrite ^/.well-known/host-meta /public.php?service=host-meta last;
+    #   rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json;
+    #   location = /.well-known/carddav {
+    #     return 301 $scheme://$host/remote.php/dav;
+    #   }
+    #   location = /.well-known/caldav {
+    #     return 301 $scheme://$host/remote.php/dav;
+    #   }
+    #   location = /robots.txt {
+    #     allow all;
+    #     log_not_found off;
+    #     access_log off;
+    #   }
+    #   location ~ ^/(?:build|tests|config|lib|3rdparty|templates|data)/ {
+    #     deny all;
+    #   }
+    #   location ~ ^/(?:autotest|occ|issue|indie|db_|console) {
+    #     deny all;
+    #   }
+    #   add_header Strict-Transport-Security "max-age=15768000; includeSubDomains; preload;" always;
+  spec:
+    ingressClassName: cilium
+  tls:
+    - secretName: nextcloud-tls
+      hosts:
+        - ${nextcloud_domain}
+
+# lifecycle:
+#   # postStartCommand: [ "/bin/sh", "-c", "echo \"ServerName ${ip_address}\" | tee -a /etc/apache2/apache2.conf " ] # && echo \"LogLevel debug\" | tee -a /etc/apache2/apache2.conf" ]
+#   postStartCommand: [ "/bin/sh", "-c", "su -s /bin/bash www-data -c 'php occ maintenance:repair --include-expensive'" ]
+
+image:
+  flavor: fpm
+
+nginx:
+  enabled: true
+  config:
+    headers:
+      "Strict-Transport-Security": "max-age=15768000; includeSubDomains; preload;"
+  # securityContext:
+  #   runAsUser: 33
+  #   runAsGroup: 33
+  #   # runAsNonRoot: true
+  #   # readOnlyRootFilesystem: true
+
+nextcloud:
+  host: ${nextcloud_domain}
+
+  trustedDomains: [
+    "${nextcloud_domain} localhost"
+  ]
+
+  # securityContext:
+  #   runAsGroup: 33
+  #   runAsUser: 33
+  #   runAsNonRoot: true
+  #   readOnlyRootFilesystem: false
+
+  # podSecurityContext:
+  #   fsGroup: 33
+
+  existingSecret:
+    enabled: true
+    secretName: nextcloud-secret
+    usernameKey: nextcloud-username
+    passwordKey: nextcloud-password
+
+  configs:
+    custom.config.php: |-
+      <?php
+      $CONFIG = array (
+        'encryption.legacy_format_support' => false,
+        'default_phone_region' => 'DE',
+        'overwritehost' => '${nextcloud_domain}',
+        'overwriteprotocol' => 'https',
+        'trusted_proxies' => array (
+          0 => '127.0.0.1',
+          1 => '10.0.0.0/8',
+          2 => '${nextcloud_proxies}',
+        ),
+        'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
+        'overwrite.cli.url' => 'https://${nextcloud_domain}',
+        # 'mail_smtpdebug' => false,
+        # 'mail_from_address' => '${mail_fromaddress}',
+        # 'mail_smtpmode' => 'smtp',
+        # 'mail_sendmailmode' => 'smtp',
+        # 'mail_domain' => '${mail_domain}',
+        # 'mail_smtphost' => '${smtp_host}',
+        # 'mail_smtpport' => '${smtp_port}',
+        # 'mail_smtpauth' => 1,
+        # 'mail_smtpname' => '${smtp_username}',
+        # 'mail_smtppassword' => '${smtp_password}',
+        'maintenance_window_start' => 1,
+      );
+    # enable for logging
+    # logging.config.php: |-
+    #   <?php
+    #   $CONFIG = array (
+    #     'log_type' => 'file',
+    #     'logfile' => 'nextcloud.log',
+    #     'loglevel' => 0,
+    #     'logdateformat' => 'F d, Y H:i:s'
+    #   );
+
+  # extraEnv:
+    # - name: OVERWRITEHOST
+    #   value: ${nextcloud_domain}
+    # - name: TRUSTED_PROXIES
+    #   value: ${nextcloud_proxies}
+    # - name: OVERWRITECLIURL
+    #   value: https://localhost
+
+  # defaultConfigs:
+  #   apcu.config.php: false
+
+  mail:
+    enabled: true
+    fromAddress: ${mail_fromaddress}
+    domain: ${mail_domain}
+    smtp:
+      name: ${smtp_username}
+      password: ${smtp_password}
+      host: ${smtp_host}
+      port: ${smtp_port}
+
+phpClientHttpsFix:
+  enabled: true
+  protocol: https
+
+cronjob:
+  enabled: true
+
+internalDatabase:
+  enabled: false
+
+externalDatabase:
+  enabled: true
+  type: postgresql
+  host: nextcloud-staging-postgresql.nextcloud-staging.svc.cluster.local:5432
+  database: ${postgresql_database}
+  user: ${postgresql_username}
+  password: ${postgresql_password}
+
+postgresql:
+  enabled: true
+  global:
+    postgresql:
+      auth:
+        database: ${postgresql_database}
+        username: ${postgresql_username}
+        password: ${postgresql_password}
+  # image:
+  #   repository: postgres
+  #   # check version here: 
+  #   # - https://github.com/nextcloud/helm/blob/master/charts/nextcloud/Chart.yaml
+  #   # - https://github.com/bitnami/charts/blob/master/bitnami/postgresql/Chart.yaml
+  #   # - https://hub.docker.com/_/postgres?tab=tags
+  #   tag: 16.3
+  #   pullPolicy: IfNotPresent
+  primary:
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-staging-postgresql-pvc
+    extraVolumes:
+      - name: backup
+        persistentVolumeClaim:
+          claimName: nextcloud-staging-backup-pvc
+    extraVolumeMounts:
+      - name: backup
+        mountPath: /backup
+
+# service:
+#   annotations:
+#     "lbipam.cilium.io/ips": "${ip_address}"
+#   type: LoadBalancer
+#   port: 8080
+#   # loadBalancerIP: ${ip_address}
+
+persistence:
+  enabled: true
+  existingClaim: nextcloud-staging-server-pvc
+  accessMode: ReadWriteOnce
+  size: 8Gi
+
+redis:
+  enabled: true
+  auth:
+    existingSecret: nextcloud-secret
+    existingSecretPasswordKey: redis-password
+  master:
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-staging-redis-master-pvc
+  replica:
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-staging-redis-replica-pvc
+    replicaCount: 1
+
+livenessProbe:
+  initialDelaySeconds: 240
+
+readinessProbe:
+  initialDelaySeconds: 240

@@ -25,6 +25,7 @@ module "nextcloud" {
   postgresql_username       = var.nextcloud_postgresql_username
   postgresql_password       = var.nextcloud_postgresql_password
   postgresql_database       = var.nextcloud_postgresql_database
+  values_yaml               = "${path.root}/helm-values/nextcloud.yaml"
 
   depends_on = [module.cert_manager_cloudflare]
 }

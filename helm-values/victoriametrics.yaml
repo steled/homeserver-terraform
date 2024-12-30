@@ -1,0 +1,156 @@
+defaultDashboards:
+  defaultTimezone: Europe/Berlin
+
+vmsingle:
+  ingress:
+  enabled: true
+  ingressClassName: cilium
+  annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: shared
+  hosts: ${vmsingle_domains}
+  tls:
+    - secretName: vmsingle-tls
+      hosts: ${vmsingle_domains}
+
+alertmanager:
+  ingress:
+    enabled: true
+    ingressClassName: cilium
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: shared
+    hosts: ${alertmanager_domains}
+    tls:
+    - secretName: alertmanager-tls
+      hosts: ${alertmanager_domains}
+  config:
+    route:
+      # receiver: webhook
+      receiver: telegram
+    receivers:
+      - name: telegram
+        telegram_configs:
+          - bot_token: ${telegram_bot_token}
+            chat_id: ${telegram_chat_id}
+      # - name: webhook
+      #   webhook_configs:
+      #   - url: https://${notify_domain}/notify/${apprise_config_id}?template=json&disabletls=yes&messagekey=body
+      #     http_config:
+      #       basic_auth:
+      #         username: <USERNAME>
+      #         password: <PASSWORD>
+      #       tls_config:
+      #         insecure_skip_verify: true
+
+vmalert:
+  ingress:
+    enabled: true
+    ingressClassName: cilium
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: shared
+    hosts: ${vmalert_domains}
+    tls:
+    - secretName: vmalert-tls
+      hosts: ${vmalert_domains}
+
+vmagent:
+  spec:
+    resources:
+      limits:
+        memory: "500Mi"
+        cpu: "500m"
+      requests:
+        memory: "200Mi"
+        cpu: "50m"
+
+  ingress:
+    enabled: true
+    ingressClassName: cilium
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: shared
+    hosts: ${vmagent_domains}
+    tls:
+    - secretName: vmagent-tls
+      hosts: ${vmagent_domains}
+
+grafana:
+  # grafana.ini:
+  #   auth:
+  #     signout_redirect_url: "${authentik_url}/application/o/grafana/end-session/"
+  #     oauth_auto_login: true
+  #   auth.generic_oauth:
+  #     name: authentik
+  #     enabled: true
+  #     client_id: "${grafana_client_id}"
+  #     client_secret: "${grafana_client_secret}"
+  #     scopes: "openid profile email"
+  #     auth_url: "${authentik_url}/application/o/authorize/"
+  #     token_url: "${authentik_url}/application/o/token/"
+  #     api_url: "${authentik_url}/application/o/userinfo/"
+  #     # Optionally map user groups to Grafana roles
+  #     role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
+
+  ingress:
+    enabled: true
+    ingressClassName: cilium
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: shared
+    hosts: ${grafana_domains}
+    tls:
+      - secretName: grafana-tls
+        hosts: ${grafana_domains}
+
+  persistence:
+    enabled: true
+    storageClassName: longhorn
+
+  admin:
+    existingSecret: victoriametrics-secret
+    userKey: grafana_admin-user
+    passwordKey: grafana_admin-password
+
+kubeControllerManager:
+  service:
+    port: 10252
+    targetPort: 10252
+  vmScrape:
+    spec:
+      endpoints:
+        - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+          port: http-metrics
+          scheme: http
+
+kubeEtcd:
+  service:
+    port: 2381
+    targetPort: 2381
+  vmScrape:
+    spec:
+      endpoints:
+        - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+          port: http-metrics
+          scheme: http
+
+kubeProxy:
+  enabled: true
+  vmScrape:
+    spec:
+      endpoints:
+        - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+          port: http-metrics
+          scheme: http
+
+kubeScheduler:
+  service:
+    port: 10251
+    targetPort: 10251
+  vmScrape:
+    spec:
+      endpoints:
+        - bearerTokenFile: /var/run/secrets/kubernetes.io/serviceaccount/token
+          port: http-metrics
+          scheme: http

@@ -1,0 +1,50 @@
+mode: standalone
+existingSecret: minio-secret
+replicas: 1
+
+tlsSecret:
+  enabled: true
+  certSecret: minio-tls
+  publicCrt: tls.crt
+  privateKey: tls.key
+
+persistence:
+  storageClass: longhorn
+  size: 50Gi
+
+ingress:
+  enabled: true
+  ingressClassName: cilium
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+    ingress.cilium.io/loadbalancer-mode: shared
+  hosts: ${ingress_domains}
+  tls:
+    - secretName: minio-tls
+      hosts:  ${ingress_domains}
+
+consoleIngress:
+  enabled: true
+  ingressClassName: cilium
+  annotations:
+    cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+  hosts: ${console_ingress_domains}
+  tls:
+    - secretName: minio-tls
+      hosts: ${console_ingress_domains}
+
+resources:
+  requests:
+    memory: 2Gi
+
+users:
+  - existingSecret: minio-secret
+    accessKey: ${user1_name}
+    existingSecretKey: user1_password
+    policy: ${user1_policy}
+
+svcaccts:
+  - existingSecret: minio-secret
+    user: ${user1_name}
+    accessKey: ${user1_accessKey}
+    existingSecretKey: user1_secretKey

@@ -22,6 +22,7 @@ module "victoriametrics" {
   notify_domain             = var.apprise_domain
   apprise_config_id         = var.apprise_config_id
   authentik_url             = var.authentik_url
+  values_yaml               = "${path.root}/helm-values/victoriametrics.yaml"
 
   depends_on = [module.cert_manager_cloudflare]
 }
