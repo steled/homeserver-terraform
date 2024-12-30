@@ -4,7 +4,7 @@ locals {
 }
 
 module "jdownloader" {
-  source = "git@github.com:steled/terraformmodules.git//jdownloader?ref=v0.9"
+  source = "git@github.com:steled/terraformmodules.git//jdownloader?ref=v0.10"
   # source = "../terraformmodules/jdownloader/"
 
   ssh_user = var.server.user
