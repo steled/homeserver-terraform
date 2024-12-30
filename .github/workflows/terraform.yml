@@ -4,9 +4,9 @@ name: 'Terraform'
 on:
   workflow_dispatch:
   # Triggers the workflow on push (only for the "main" branch) or pull request events
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   pull_request:
 
 #  if a new commit is pushed to the main branch while a previous run is still in progress, the previous run will be cancelled and the new one will start
