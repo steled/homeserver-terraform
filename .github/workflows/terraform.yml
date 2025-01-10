@@ -85,15 +85,15 @@ jobs:
       run: terraform --version
 
     - name: Init Terraform
-      run: terraform init
+      run: |
+        # replace SSH cloning wiht HTTPS cloning method
+        sed -i 's/git@github.com:steled/github.com\/steled/' *.tf
+        terraform init
 
     - name: Run TFLint
       env:
         GITHUB_TOKEN: ${{ github.token }}
-      run: |
-        # replace SSH cloning wiht HTTPS cloning method
-        sed -i 's/git@github.com:steled/github.com\/steled/' *.tf
-        tflint --call-module-type=all
+      run: tflint --call-module-type=all
 
   tfdocs:
     permissions:
