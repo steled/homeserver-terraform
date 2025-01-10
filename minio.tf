@@ -3,7 +3,7 @@ module "minio" {
   # source = "../terraformmodules/minio/"
 
   # renovate: depName=minio registryUrl=https://charts.min.io/
-  minio_version             = "5.3.0" # check version here: https://github.com/minio/minio/blob/master/helm/minio/Chart.yaml#L4
+  minio_version             = "5.4.0" # check version here: https://github.com/minio/minio/blob/master/helm/minio/Chart.yaml#L4
   kubernetes_namespace_name = "minio"
   ingress_domains           = var.minio_ingress_domains_prd
   console_ingress_domains   = var.minio_console_ingress_domains_prd
