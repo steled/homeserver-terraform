@@ -27,14 +27,14 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_apprise"></a> [apprise](#module\_apprise) | git@github.com:steled/terraformmodules.git//apprise | v0.10 |
-| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.10 |
-| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.10 |
-| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.10 |
-| <a name="module_longhorn"></a> [longhorn](#module\_longhorn) | git@github.com:steled/terraformmodules.git//longhorn | v0.10 |
-| <a name="module_minio"></a> [minio](#module\_minio) | git@github.com:steled/terraformmodules.git//minio | v0.10 |
-| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.10 |
-| <a name="module_victoriametrics"></a> [victoriametrics](#module\_victoriametrics) | git@github.com:steled/terraformmodules.git//victoriametrics | v0.10 |
+| <a name="module_apprise"></a> [apprise](#module\_apprise) | git@github.com:steled/terraformmodules.git//apprise | v0.11 |
+| <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.11 |
+| <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.11 |
+| <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.11 |
+| <a name="module_longhorn"></a> [longhorn](#module\_longhorn) | git@github.com:steled/terraformmodules.git//longhorn | v0.11 |
+| <a name="module_minio"></a> [minio](#module\_minio) | git@github.com:steled/terraformmodules.git//minio | v0.11 |
+| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.11 |
+| <a name="module_victoriametrics"></a> [victoriametrics](#module\_victoriametrics) | git@github.com:steled/terraformmodules.git//victoriametrics | v0.11 |
 
 ## Resources
 
