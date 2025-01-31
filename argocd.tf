@@ -1,6 +1,6 @@
 module "argocd" {
-  # source = "git@github.com:steled/terraformmodules.git//argocd?ref=v0.10"
-  source = "../terraformmodules/argocd/"
+  source = "git@github.com:steled/terraformmodules.git//argocd?ref=v0.12"
+  # source = "../terraformmodules/argocd/"
 
   # renovate: datasource=github-tags depName=argocd packageName=argoproj/argo-helm
   argocd_version = "7.7.11" # check version here: https://github.com/argoproj/argo-helm/blob/main/charts/argo-cd/Chart.yaml#L6
