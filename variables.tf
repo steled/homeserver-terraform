@@ -91,8 +91,11 @@ variable "nextcloud_mail_domain" {
 variable "nextcloud_postgresql_username" {
   type = string
 }
+variable "nextcloud_postgresql_admin_password" {
+  type = string
+}
 
-variable "nextcloud_postgresql_password" {
+variable "nextcloud_postgresql_user_password" {
   type = string
 }
 
@@ -384,4 +387,24 @@ variable "telegram_bot_token" {
 variable "telegram_chat_id" {
   type        = string
   description = "Chat id for Telegram"
+}
+
+variable "argocd_env_prd" {
+  type        = string
+  description = "Environment for Argo CD prd"
+}
+
+variable "argocd_domain_prd" {
+  type        = string
+  description = "Domain for Argo CD ingress prd"
+}
+
+variable "argocd_accounts_steled_password" {
+  type        = string
+  description = "Password for Argo CD user steled"
+}
+
+variable "argocd_apps_sshPrivateKey" {
+  type        = string
+  description = "SSH private key for argocd-apps repository"
 }
