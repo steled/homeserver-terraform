@@ -1,5 +1,5 @@
 module "nextcloud" {
-  source = "git@github.com:steled/terraformmodules.git//nextcloud?ref=v0.11"
+  source = "git@github.com:steled/terraformmodules.git//nextcloud?ref=v0.12"
   # source = "../terraformmodules/nextcloud/"
 
   ssh_user = var.server.user
@@ -23,7 +23,8 @@ module "nextcloud" {
   smtp_password             = var.nextcloud_smtp_password
   redis_password            = var.nextcloud_redis_password
   postgresql_username       = var.nextcloud_postgresql_username
-  postgresql_password       = var.nextcloud_postgresql_password
+  postgresql_admin_password = var.nextcloud_postgresql_admin_password
+  postgresql_user_password  = var.nextcloud_postgresql_user_password
   postgresql_database       = var.nextcloud_postgresql_database
   values_yaml               = "${path.root}/helm-values/nextcloud.yaml"
 
