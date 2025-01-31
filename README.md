@@ -28,6 +28,7 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_apprise"></a> [apprise](#module\_apprise) | git@github.com:steled/terraformmodules.git//apprise | v0.11 |
+| <a name="module_argocd"></a> [argocd](#module\_argocd) | ../terraformmodules/argocd/ | n/a |
 | <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.11 |
 | <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.11 |
 | <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.11 |
