@@ -1,6 +1,6 @@
 locals {
   # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
-  sftp_version = "v0.3.12"
+  sftp_version = "v0.3.13"
 }
 
 module "jdownloader" {
