@@ -1,5 +1,5 @@
 module "victoriametrics" {
-  source = "git@github.com:steled/terraformmodules.git//victoriametrics?ref=v0.13"
+  source = "git@github.com:steled/terraformmodules.git//victoriametrics?ref=v0.14"
   # source = "../terraformmodules/victoriametrics/"
 
   # renovate: datasource=docker depName=haproxy packageName=haproxy
