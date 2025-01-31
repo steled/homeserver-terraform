@@ -8,7 +8,7 @@ module "nextcloud" {
   # renovate: datasource=github-tags depName=nextcloud packageName=nextcloud/helm
   nextcloud_version         = "6.6.3" # get version from here: https://github.com/nextcloud/helm/blob/main/charts/nextcloud/Chart.yaml#L3
   kubernetes_namespace_name = "nextcloud"
-  maintenance_job_image     = "nextcloud:30.0.4-fpm" # get version from here: https://github.com/nextcloud/helm/blob/main/charts/nextcloud/Chart.yaml#L4
+  maintenance_job_image     = "nextcloud:30.0.5-fpm" # get version from here: https://github.com/nextcloud/helm/blob/main/charts/nextcloud/Chart.yaml#L5
   nextcloud_domain          = var.nextcloud_prd_domain
   environment               = var.nextcloud_prd_env
   ip_address                = var.nextcloud_prd_ip_address
