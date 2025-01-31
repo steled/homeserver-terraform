@@ -34,7 +34,7 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.11 |
 | <a name="module_longhorn"></a> [longhorn](#module\_longhorn) | git@github.com:steled/terraformmodules.git//longhorn | v0.11 |
 | <a name="module_minio"></a> [minio](#module\_minio) | git@github.com:steled/terraformmodules.git//minio | v0.11 |
-| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.11 |
+| <a name="module_nextcloud"></a> [nextcloud](#module\_nextcloud) | git@github.com:steled/terraformmodules.git//nextcloud | v0.12 |
 | <a name="module_victoriametrics"></a> [victoriametrics](#module\_victoriametrics) | git@github.com:steled/terraformmodules.git//victoriametrics | v0.11 |
 
 ## Resources
