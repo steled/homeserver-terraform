@@ -2,7 +2,7 @@ module "minio" {
   source = "git@github.com:steled/terraformmodules.git//minio?ref=v0.12"
   # source = "../terraformmodules/minio/"
 
-  # renovate: depName=minio registryUrl=https://charts.min.io/
+  # renovate: datasource=helm depName=minio registryUrl=https://charts.min.io/
   minio_version             = "5.4.0" # check version here: https://github.com/minio/minio/blob/master/helm/minio/Chart.yaml#L4
   kubernetes_namespace_name = "minio"
   ingress_domains           = var.minio_ingress_domains_prd
