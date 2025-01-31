@@ -1,5 +1,5 @@
 module "nextcloud" {
-  source = "git@github.com:steled/terraformmodules.git//nextcloud?ref=v0.12"
+  source = "git@github.com:steled/terraformmodules.git//nextcloud?ref=v0.13"
   # source = "../terraformmodules/nextcloud/"
 
   ssh_user = var.server.user
