@@ -28,7 +28,7 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_apprise"></a> [apprise](#module\_apprise) | git@github.com:steled/terraformmodules.git//apprise | v0.11 |
-| <a name="module_argocd"></a> [argocd](#module\_argocd) | ../terraformmodules/argocd/ | n/a |
+| <a name="module_argocd"></a> [argocd](#module\_argocd) | git@github.com:steled/terraformmodules.git//argocd | v0.12 |
 | <a name="module_cert_manager_cloudflare"></a> [cert\_manager\_cloudflare](#module\_cert\_manager\_cloudflare) | git@github.com:steled/terraformmodules.git//cert-manager_cloudflare | v0.11 |
 | <a name="module_hassio"></a> [hassio](#module\_hassio) | git@github.com:steled/terraformmodules.git//hassio | v0.11 |
 | <a name="module_jdownloader"></a> [jdownloader](#module\_jdownloader) | git@github.com:steled/terraformmodules.git//jdownloader | v0.11 |
@@ -56,6 +56,10 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_apprise_config_id"></a> [apprise\_config\_id](#input\_apprise\_config\_id) | Config id for Apprise | `string` | n/a | yes |
 | <a name="input_apprise_domain"></a> [apprise\_domain](#input\_apprise\_domain) | Domain for Apprise ingress prd | `string` | n/a | yes |
 | <a name="input_apprise_env_prd"></a> [apprise\_env\_prd](#input\_apprise\_env\_prd) | Environment for Apprise prd | `string` | n/a | yes |
+| <a name="input_argocd_accounts_steled_password"></a> [argocd\_accounts\_steled\_password](#input\_argocd\_accounts\_steled\_password) | Password for Argo CD user steled | `string` | n/a | yes |
+| <a name="input_argocd_apps_sshPrivateKey"></a> [argocd\_apps\_sshPrivateKey](#input\_argocd\_apps\_sshPrivateKey) | SSH private key for argocd-apps repository | `string` | n/a | yes |
+| <a name="input_argocd_domain_prd"></a> [argocd\_domain\_prd](#input\_argocd\_domain\_prd) | Domain for Argo CD ingress prd | `string` | n/a | yes |
+| <a name="input_argocd_env_prd"></a> [argocd\_env\_prd](#input\_argocd\_env\_prd) | Environment for Argo CD prd | `string` | n/a | yes |
 | <a name="input_authentik_grafana_client_id"></a> [authentik\_grafana\_client\_id](#input\_authentik\_grafana\_client\_id) | n/a | `string` | n/a | yes |
 | <a name="input_authentik_grafana_client_secret"></a> [authentik\_grafana\_client\_secret](#input\_authentik\_grafana\_client\_secret) | n/a | `string` | n/a | yes |
 | <a name="input_authentik_url"></a> [authentik\_url](#input\_authentik\_url) | n/a | `string` | n/a | yes |
@@ -85,8 +89,9 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 | <a name="input_nextcloud_admin_password"></a> [nextcloud\_admin\_password](#input\_nextcloud\_admin\_password) | Admin password for Nextcloud | `string` | n/a | yes |
 | <a name="input_nextcloud_admin_username"></a> [nextcloud\_admin\_username](#input\_nextcloud\_admin\_username) | Admin username for Nextcloud | `string` | n/a | yes |
 | <a name="input_nextcloud_mail_domain"></a> [nextcloud\_mail\_domain](#input\_nextcloud\_mail\_domain) | n/a | `string` | n/a | yes |
+| <a name="input_nextcloud_postgresql_admin_password"></a> [nextcloud\_postgresql\_admin\_password](#input\_nextcloud\_postgresql\_admin\_password) | n/a | `string` | n/a | yes |
 | <a name="input_nextcloud_postgresql_database"></a> [nextcloud\_postgresql\_database](#input\_nextcloud\_postgresql\_database) | n/a | `string` | n/a | yes |
-| <a name="input_nextcloud_postgresql_password"></a> [nextcloud\_postgresql\_password](#input\_nextcloud\_postgresql\_password) | n/a | `string` | n/a | yes |
+| <a name="input_nextcloud_postgresql_user_password"></a> [nextcloud\_postgresql\_user\_password](#input\_nextcloud\_postgresql\_user\_password) | n/a | `string` | n/a | yes |
 | <a name="input_nextcloud_postgresql_username"></a> [nextcloud\_postgresql\_username](#input\_nextcloud\_postgresql\_username) | n/a | `string` | n/a | yes |
 | <a name="input_nextcloud_prd_domain"></a> [nextcloud\_prd\_domain](#input\_nextcloud\_prd\_domain) | Domain for Nextcloud prd | `string` | n/a | yes |
 | <a name="input_nextcloud_prd_env"></a> [nextcloud\_prd\_env](#input\_nextcloud\_prd\_env) | Environment for Nextcloud prd | `string` | n/a | yes |
