@@ -52,6 +52,16 @@ authentik_url                   = "<REDACTED>"
 longhorn_domain_prd = "<REDACTED>"
 longhorn_env_prd    = "<REDACTED>"
 
+# Argo CD
+argocd_domain_prd               = "<REDACTED>"
+argocd_env_prd                  = "<REDACTED>"
+argocd_accounts_steled_password = "<REDACTED>"
+argocd_apps_sshPrivateKey       = <<-EOT
+-----BEGIN OPENSSH PRIVATE KEY-----
+      <REDACTED>
+      -----END OPENSSH PRIVATE KEY-----
+EOT
+
 ## Telegram
 telegram_bot_token = "<REDACTED>"
 telegram_chat_id   = "<REDACTED>"
@@ -84,25 +94,26 @@ hassio_ip_address = "<REDACTED>"
 hassio_env        = "<REDACTED>"
 
 ## Nextcloud
-nextcloud_admin_password       = "<REDACTED>"
-nextcloud_admin_username       = "<REDACTED>"
-nextcloud_mail_domain          = "<REDACTED>"
-nextcloud_postgresql_database  = "<REDACTED>"
-nextcloud_postgresql_password  = "<REDACTED>"
-nextcloud_postgresql_username  = "<REDACTED>"
-nextcloud_prd_domain           = "<REDACTED>"
-nextcloud_prd_env              = "<REDACTED>"
-nextcloud_prd_ip_address       = "<REDACTED>"
-nextcloud_prd_mail_fromaddress = "<REDACTED>"
-nextcloud_proxies              = "<REDACTED>"
-nextcloud_redis_password       = "<REDACTED>"
-nextcloud_smtp_host            = "<REDACTED>"
-nextcloud_smtp_password        = "<REDACTED>"
-nextcloud_smtp_username        = "<REDACTED>"
-# nextcloud_stg_domain           = "<REDACTED>"
-# nextcloud_stg_env              = "<REDACTED>"
-# nextcloud_stg_ip_address       = "<REDACTED>"
-# nextcloud_stg_mail_fromaddress = "<REDACTED>"
+nextcloud_admin_password            = "<REDACTED>"
+nextcloud_admin_username            = "<REDACTED>"
+nextcloud_mail_domain               = "<REDACTED>"
+nextcloud_postgresql_database       = "<REDACTED>"
+nextcloud_postgresql_admin_password = "<REDACTED>"
+nextcloud_postgresql_user_password  = "<REDACTED>"
+nextcloud_postgresql_username       = "<REDACTED>"
+nextcloud_prd_domain                = "<REDACTED>"
+nextcloud_prd_env                   = "<REDACTED>"
+nextcloud_prd_ip_address            = "<REDACTED>"
+nextcloud_prd_mail_fromaddress      = "<REDACTED>"
+nextcloud_proxies                   = "<REDACTED>"
+nextcloud_redis_password            = "<REDACTED>"
+nextcloud_smtp_host                 = "<REDACTED>"
+nextcloud_smtp_password             = "<REDACTED>"
+nextcloud_smtp_username             = "<REDACTED>"
+# nextcloud_stg_domain               = "<REDACTED>"
+# nextcloud_stg_env                  = "<REDACTED>"
+# nextcloud_stg_ip_address           = "<REDACTED>"
+# nextcloud_stg_mail_fromaddress     = "<REDACTED>"
 
 ## rsync
 rsync_dst_folder_path = "<REDACTED>"
