@@ -1,0 +1,49 @@
+global:
+  domain: ${domain}
+
+configs:
+  cm:
+    accounts.steled: apiKey, login
+    accounts.steled.enabled: true
+    admin.enabled: false
+    users.anonymous.enabled: false
+  credentialTemplates:
+    ssh-creds:
+     url: git@github.com:steled
+     sshPrivateKey: |
+      ${argocd_apps_sshPrivateKey}
+  rbac:
+    policy.csv: |
+      g, steled, role:admin
+  repositories:
+    argocd-apps:
+      url: git@github.com:steled/argocd-apps.git
+  secret:
+    extra:
+      accounts.steled.password: ${accounts_steled_password}
+
+server:
+  certificate:
+    enabled: true
+    issuer:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: cloudflare-letsencrypt-${environment}
+
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+      ingress.cilium.io/loadbalancer-mode: shared
+      ingress.cilium.io/tls-passthrough: enabled
+      ingress.cilium.io/force-https: enabled
+    ingressClassName: cilium
+    tls: true
+
+notifications:
+  notifiers:
+    service.telegram: |
+      token: $telegram-token
+  secret:
+    items:
+      telegram-token: ${telegram_bot_token}
