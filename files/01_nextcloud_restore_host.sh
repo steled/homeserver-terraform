@@ -8,34 +8,39 @@ else
 fi
 
 # cleanup persistent directories
-sudo rm -rf /ext/persistent/nextcloud_staging/server/*
-sudo rm -rf /ext/persistent/nextcloud_staging/postgresql/*
+sudo rm -rf /ext/persistent/nextcloud-staging/server/*
+sudo rm -rf /ext/persistent/nextcloud-staging/postgresql/*
 
 # create directories
-sudo mkdir -p /ext/persistent/nextcloud_staging/postgresql
-sudo mkdir -p /ext/persistent/nextcloud_staging/server
-sudo mkdir -p /ext/persistent/nextcloud_staging/server/config
+sudo mkdir -p /ext/persistent/nextcloud-staging/postgresql
+sudo mkdir -p /ext/persistent/nextcloud-staging/server
+sudo mkdir -p /ext/persistent/nextcloud-staging/server/config
 
 # copy postgresql backup file
-sudo cp /ext/backup/nextcloud/postgresql/nextcloud-sqlbkp_$BACKUP_DATE.bak /ext/persistent/nextcloud_staging/backup/nextcloud-sqlbkp.bak
+sudo cp /ext/backup/nextcloud/postgresql/nextcloud-sqlbkp_$BACKUP_DATE.bak /ext/persistent/nextcloud-staging/backup/nextcloud-sqlbkp.bak
 
 # copy postgresql roles backup file
-sudo cp /ext/backup/nextcloud/postgresql/nextcloud-sqlbkp-roles_$BACKUP_DATE.bak /ext/persistent/nextcloud_staging/backup/nextcloud-sqlbkp-roles.bak
+sudo cp /ext/backup/nextcloud/postgresql/nextcloud-sqlbkp-roles_$BACKUP_DATE.bak /ext/persistent/nextcloud-staging/backup/nextcloud-sqlbkp-roles.bak
 
 # copy backup files to persistent directories
-sudo rsync -Aax --exclude 'data/stephan/files/Photos/emilia' /ext/backup/nextcloud/server/ /ext/persistent/nextcloud_staging/server/
-#sudo rsync -Aax --exclude 'data/stephan/files' --exclude 'data/stephan/uploads' --exclude 'data/appdata_ocxa91b6g425/preview' --exclude 'data/nadine/files' --exclude 'data/nadine/uploads' /ext/backup/nextcloud/server/ /ext/persistent/nextcloud_staging/server/
+sudo rsync -Aax --exclude 'data/stephan/files/Photos/emilia' /ext/backup/nextcloud/server/ /ext/persistent/nextcloud-staging/server/
+#sudo rsync -Aax --exclude 'data/stephan/files' --exclude 'data/stephan/uploads' --exclude 'data/appdata_ocxa91b6g425/preview' --exclude 'data/nadine/files' --exclude 'data/nadine/uploads' /ext/backup/nextcloud/server/ /ext/persistent/nextcloud-staging/server/
 
 # update persmissions
-sudo chown 1001:1001 -R /ext/persistent/nextcloud_staging/postgresql/
-sudo chown 1000:1000 -R /ext/persistent/nextcloud_staging/server/
-sudo chown www-data:www-data -R /ext/persistent/nextcloud_staging/server/config
+sudo chown 1001:1001 -R /ext/persistent/nextcloud-staging/postgresql/
+sudo chown 1000:1000 -R /ext/persistent/nextcloud-staging/server/
+sudo chown www-data:www-data -R /ext/persistent/nextcloud-staging/server/config
+
+# update dbhost var in config.php
+sudo sed -i "s/'dbhost' => 'nextcloud-postgresql',/'dbhost' => 'nextcloud-staging-postgresql',/" /ext/persistent/nextcloud-staging/server/config/config.php
 
 # initialize terraform
-terraform -chdir=/ext/repo/gitea_project_automation/terraform/nextcloud_staging init
+terraform init
+# terraform -chdir=/ext/repo/gitea_project_automation/terraform/nextcloud-staging init
 
 # apply terraform
-terraform -chdir=/ext/repo/gitea_project_automation/terraform/nextcloud_staging apply -auto-approve
+terraform apply --target module.nextcloud_staging -var-file prd.tfvars -auto-approve
+# terraform -chdir=/ext/repo/gitea_project_automation/terraform/nextcloud-staging apply -auto-approve
 
 # get server pod
 POD_SERVER=$(kubectl get pods -n nextcloud-staging -l app.kubernetes.io/component=app --no-headers -o custom-columns=NAME:metadata.name)
@@ -76,4 +81,5 @@ kubectl exec -n nextcloud-staging $POD_SERVER -c nextcloud -- bash -c "su -s /bi
 kubectl exec -n nextcloud-staging $POD_SERVER -c nextcloud -- bash -c "kill 1"
 
 # destroy terraform
-#terraform -chdir=/ext/repo/gitea_project_automation/terraform/nextcloud_staging destroy -auto-approve
+# terraform destroy --target module.nextcloud_staging -var-file prd.tfvars -auto-approve
+#terraform -chdir=/ext/repo/gitea_project_automation/terraform/nextcloud-staging destroy -auto-approve
