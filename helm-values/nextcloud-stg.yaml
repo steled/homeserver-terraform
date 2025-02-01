@@ -53,6 +53,13 @@ nginx:
   config:
     headers:
       "Strict-Transport-Security": "max-age=15768000; includeSubDomains; preload;"
+    custom: |-
+      fastcgi_send_timeout 180s;
+      fastcgi_read_timeout 180s;
+      proxy_connect_timeout 180s;
+      proxy_read_timeout 180s;
+      proxy_send_timeout 180s;
+      send_timeout 180s;
   # securityContext:
   #   runAsUser: 33
   #   runAsGroup: 33
@@ -87,7 +94,7 @@ nextcloud:
       $CONFIG = array (
         'encryption.legacy_format_support' => false,
         'default_phone_region' => 'DE',
-        'overwritehost' => '${nextcloud_domain}',
+        # 'overwritehost' => '${nextcloud_domain}',
         'overwriteprotocol' => 'https',
         'trusted_proxies' => array (
           0 => '127.0.0.1',
@@ -95,15 +102,15 @@ nextcloud:
           2 => '${nextcloud_proxies}',
         ),
         'forwarded_for_headers' => array('HTTP_X_FORWARDED_FOR'),
-        'overwrite.cli.url' => 'https://${nextcloud_domain}',
+        # 'overwrite.cli.url' => 'https://${nextcloud_domain}',
         # 'mail_smtpdebug' => false,
         # 'mail_from_address' => '${mail_fromaddress}',
         # 'mail_smtpmode' => 'smtp',
-        # 'mail_sendmailmode' => 'smtp',
         # 'mail_domain' => '${mail_domain}',
         # 'mail_smtphost' => '${smtp_host}',
         # 'mail_smtpport' => '${smtp_port}',
-        # 'mail_smtpauth' => 1,
+        # 'mail_smtpsecure' => '',
+        # 'mail_smtpauth' => true,
         # 'mail_smtpname' => '${smtp_username}',
         # 'mail_smtppassword' => '${smtp_password}',
         'maintenance_window_start' => 1,
@@ -118,13 +125,13 @@ nextcloud:
     #     'logdateformat' => 'F d, Y H:i:s'
     #   );
 
-  # extraEnv:
-    # - name: OVERWRITEHOST
-    #   value: ${nextcloud_domain}
+  extraEnv:
+    - name: OVERWRITEHOST
+      value: ${nextcloud_domain}
     # - name: TRUSTED_PROXIES
     #   value: ${nextcloud_proxies}
-    # - name: OVERWRITECLIURL
-    #   value: https://localhost
+    - name: OVERWRITECLIURL
+      value: https://${nextcloud_domain}
 
   # defaultConfigs:
   #   apcu.config.php: false
@@ -138,6 +145,8 @@ nextcloud:
       password: ${smtp_password}
       host: ${smtp_host}
       port: ${smtp_port}
+      secure: ""
+      authtype: LOGIN
 
 phpClientHttpsFix:
   enabled: true
@@ -154,8 +163,11 @@ externalDatabase:
   type: postgresql
   host: nextcloud-staging-postgresql.nextcloud-staging.svc.cluster.local:5432
   database: ${postgresql_database}
-  user: ${postgresql_username}
-  password: ${postgresql_password}
+  existingSecret:
+    enabled: true
+    secretName: nextcloud-secret
+    usernameKey: postgresql-username
+    passwordKey: postgresql-user-password
 
 postgresql:
   enabled: true
@@ -163,8 +175,10 @@ postgresql:
     postgresql:
       auth:
         database: ${postgresql_database}
-        username: ${postgresql_username}
-        password: ${postgresql_password}
+        existingSecret: nextcloud-secret
+        secretKeys:
+          adminPasswordKey: postgresql-admin-password
+          userPasswordKey: postgresql-user-password
   # image:
   #   repository: postgres
   #   # check version here: 
@@ -174,9 +188,6 @@ postgresql:
   #   tag: 16.3
   #   pullPolicy: IfNotPresent
   primary:
-    persistence:
-      enabled: true
-      existingClaim: nextcloud-staging-postgresql-pvc
     extraVolumes:
       - name: backup
         persistentVolumeClaim:
@@ -184,6 +195,10 @@ postgresql:
     extraVolumeMounts:
       - name: backup
         mountPath: /backup
+    persistence:
+      enabled: true
+      existingClaim: nextcloud-staging-postgresql-pvc
+    resourcesPreset: "small"
 
 # service:
 #   annotations:
@@ -207,11 +222,13 @@ redis:
     persistence:
       enabled: true
       existingClaim: nextcloud-staging-redis-master-pvc
+    resourcesPreset: "micro"
   replica:
     persistence:
       enabled: true
       existingClaim: nextcloud-staging-redis-replica-pvc
     replicaCount: 1
+    resourcesPreset: "micro"
 
 livenessProbe:
   initialDelaySeconds: 240
