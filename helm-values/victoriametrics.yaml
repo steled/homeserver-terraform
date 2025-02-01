@@ -1,17 +1,19 @@
+# fullnameOverride: vmks
+
 defaultDashboards:
   defaultTimezone: Europe/Berlin
 
 vmsingle:
   ingress:
-  enabled: true
-  ingressClassName: cilium
-  annotations:
-      cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
-      ingress.cilium.io/loadbalancer-mode: shared
-  hosts: ${vmsingle_domains}
-  tls:
-    - secretName: vmsingle-tls
-      hosts: ${vmsingle_domains}
+    enabled: true
+    ingressClassName: cilium
+    annotations:
+        cert-manager.io/cluster-issuer: cloudflare-letsencrypt-${environment}
+        ingress.cilium.io/loadbalancer-mode: shared
+    hosts: ${vmsingle_domains}
+    tls:
+      - secretName: vmsingle-tls
+        hosts: ${vmsingle_domains}
 
 alertmanager:
   ingress:
