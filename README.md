@@ -52,7 +52,6 @@ source: https://github.com/mrsauravsahu/kube-homelab/tree/main
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_apprise_api_htpasswd_secret"></a> [apprise\_api\_htpasswd\_secret](#input\_apprise\_api\_htpasswd\_secret) | .htpasswd secret for Apprise API | `string` | n/a | yes |
 | <a name="input_apprise_config_id"></a> [apprise\_config\_id](#input\_apprise\_config\_id) | Config id for Apprise | `string` | n/a | yes |
 | <a name="input_apprise_domain"></a> [apprise\_domain](#input\_apprise\_domain) | Domain for Apprise ingress prd | `string` | n/a | yes |
 | <a name="input_apprise_env_prd"></a> [apprise\_env\_prd](#input\_apprise\_env\_prd) | Environment for Apprise prd | `string` | n/a | yes |
