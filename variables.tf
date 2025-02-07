@@ -359,10 +359,10 @@ variable "authentik_url" {
 #   type = string
 # }
 
-variable "apprise_api_htpasswd_secret" {
-  type        = string
-  description = ".htpasswd secret for Apprise API"
-}
+# variable "apprise_api_htpasswd_secret" {
+#   type        = string
+#   description = ".htpasswd secret for Apprise API"
+# }
 
 variable "apprise_env_prd" {
   type        = string
