@@ -1,4 +1,7 @@
+![renovate workflow](https://github.com/steled/homelab-terraform/actions/workflows/renovate.yaml/badge.svg) ![terraform workflow](https://github.com/steled/homelab-terraform/actions/workflows/terraform.yaml/badge.svg)
+
 # homeserver-terraform
+
 Repository for HomeServer install/config via Terraform
 
 source: https://github.com/mrsauravsahu/kube-homelab/tree/main
