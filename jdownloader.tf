@@ -1,5 +1,5 @@
 locals {
-  # renovate: datasource=github-tags depName=sftp-server packageName=steled/sftp-server
+  # repo does not exist anymore
   sftp_version = "v0.3.13"
 }
 
