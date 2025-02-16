@@ -12,7 +12,7 @@ resource "ssh_resource" "install_k3s" {
 
   timeout = "10m"
 
-  depends_on = [ ssh_resource.files ]
+  depends_on = [ssh_resource.files]
 }
 
 resource "time_sleep" "wait_30_seconds_2" {
@@ -27,7 +27,7 @@ resource "ssh_resource" "uninstall_k3s" {
   private_key = file(var.server.private_key)
   # agent       = true
 
-  commands    = ["bash -c 'ip link delete cilium_host; ip link delete cilium_net; ip link delete cilium_vxlan; iptables-save | grep -iv cilium | iptables-restore; ip6tables-save | grep -iv cilium | ip6tables-restore; /usr/local/bin/k3s-killall.sh; /usr/local/bin/k3s-uninstall.sh;'"]
+  commands = ["bash -c 'ip link delete cilium_host; ip link delete cilium_net; ip link delete cilium_vxlan; iptables-save | grep -iv cilium | iptables-restore; ip6tables-save | grep -iv cilium | ip6tables-restore; /usr/local/bin/k3s-killall.sh; /usr/local/bin/k3s-uninstall.sh;'"]
 
-  depends_on = [ time_sleep.wait_30_seconds_2 ]
+  depends_on = [time_sleep.wait_30_seconds_2]
 }

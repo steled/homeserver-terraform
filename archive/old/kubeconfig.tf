@@ -7,7 +7,7 @@ data "remote_file" "kubeconfig" {
 
   path = "/etc/rancher/k3s/k3s.yaml"
 
-  depends_on  = [ ssh_resource.install_k3s ]
+  depends_on = [ssh_resource.install_k3s]
 }
 
 resource "local_sensitive_file" "kubeconfig" {
@@ -15,5 +15,5 @@ resource "local_sensitive_file" "kubeconfig" {
   filename        = pathexpand("~/.kube/config")
   file_permission = 0600
 
-  depends_on  = [ ssh_resource.install_k3s ]
+  depends_on = [ssh_resource.install_k3s]
 }
