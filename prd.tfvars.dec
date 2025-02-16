@@ -2,7 +2,7 @@
 cert_manager_email = "<REDACTED>"
 cilium_cidr        = "<REDACTED>"
 # ingress_ip_address             = "<REDACTED>"
-sftp_ip_address = "<REDACTED>"
+# sftp_ip_address = "<REDACTED>"
 server = {
   host        = "<REDACTED>"
   user        = "<REDACTED>"
@@ -11,12 +11,12 @@ server = {
 
 ## Cloudflare
 cloudflare_api_token   = "<REDACTED>"
-cloudflare_dns_zone_id = "<REDACTED>"
-cloudflare_dnsrecord = [
-  "(\"<REDACTED>\" \"<REDACTED>\")",
-  "(\"<REDACTED>\" \"<REDACTED>\")",
-  "(\"<REDACTED>\" \"<REDACTED>\")",
-]
+# cloudflare_dns_zone_id = "<REDACTED>"
+# cloudflare_dnsrecord = [
+#   "(\"<REDACTED>\" \"<REDACTED>\")",
+#   "(\"<REDACTED>\" \"<REDACTED>\")",
+#   "(\"<REDACTED>\" \"<REDACTED>\")",
+# ]
 # duckdns_webhook_ip_address = "<REDACTED>"
 
 ## Hashicorp Vault
@@ -25,15 +25,15 @@ cloudflare_dnsrecord = [
 # hashicorp_vault_ip_address = "<REDACTED>"
 
 ## JDownloader
-jdownloader_env_jd_devicename = "<REDACTED>"
-jdownloader_env_jd_email      = "<REDACTED>"
-jdownloader_env_jd_password   = "<REDACTED>"
+# jdownloader_env_jd_devicename = "<REDACTED>"
+# jdownloader_env_jd_email      = "<REDACTED>"
+# jdownloader_env_jd_password   = "<REDACTED>"
 
 ## Apprise
 # apprise_api_htpasswd_secret = "<REDACTED>"
-apprise_env_prd             = "<REDACTED>"
-apprise_domain              = "<REDACTED>"
-apprise_config_id           = "<REDACTED>"
+# apprise_env_prd             = "<REDACTED>"
+# apprise_domain              = "<REDACTED>"
+# apprise_config_id           = "<REDACTED>"
 
 ## Authentik
 # authentik_env_prd               = "<REDACTED>"
@@ -43,14 +43,14 @@ apprise_config_id           = "<REDACTED>"
 # authentik_bootstrap_password    = "<REDACTED>"
 # authentik_bootstrap_token       = "<REDACTED>"
 # authentik_bootstrap_email       = "<REDACTED>"
-authentik_grafana_client_id     = "<REDACTED>"
-authentik_grafana_client_secret = "<REDACTED>"
-authentik_url                   = "<REDACTED>"
+# authentik_grafana_client_id     = "<REDACTED>"
+# authentik_grafana_client_secret = "<REDACTED>"
+# authentik_url                   = "<REDACTED>"
 # grafana_allowed_redirect_uris   = "<REDACTED>"
 
 ## Longhorn
-longhorn_domain_prd = "<REDACTED>"
-longhorn_env_prd    = "<REDACTED>"
+# longhorn_domain_prd = "<REDACTED>"
+# longhorn_env_prd    = "<REDACTED>"
 
 # Argo CD
 argocd_domain_prd               = "<REDACTED>"
@@ -64,59 +64,59 @@ EOT
 
 ## Telegram
 telegram_bot_token = "<REDACTED>"
-telegram_chat_id   = "<REDACTED>"
+# telegram_chat_id   = "<REDACTED>"
 
 ## VictoriaMetrics
-victoriametrics_vmsingle_domains       = "<REDACTED>"
-victoriametrics_alertmanager_domains   = "<REDACTED>"
-victoriametrics_vmalert_domains        = "<REDACTED>"
-victoriametrics_vmagent_domains        = "<REDACTED>"
-victoriametrics_grafana_domains        = "<REDACTED>"
-victoriametrics_env_prd                = "<REDACTED>"
-victoriametrics_grafana_admin_user     = "<REDACTED>"
-victoriametrics_grafana_admin_password = "<REDACTED>"
+# victoriametrics_vmsingle_domains       = "<REDACTED>"
+# victoriametrics_alertmanager_domains   = "<REDACTED>"
+# victoriametrics_vmalert_domains        = "<REDACTED>"
+# victoriametrics_vmagent_domains        = "<REDACTED>"
+# victoriametrics_grafana_domains        = "<REDACTED>"
+# victoriametrics_env_prd                = "<REDACTED>"
+# victoriametrics_grafana_admin_user     = "<REDACTED>"
+# victoriametrics_grafana_admin_password = "<REDACTED>"
 
 ## MinIO
-minio_ingress_domains_prd         = "<REDACTED>"
-minio_console_ingress_domains_prd = "<REDACTED>"
-minio_env_prd                     = "<REDACTED>"
-minio_rootUser                    = "<REDACTED>"
-minio_rootPassword                = "<REDACTED>"
-minio_user1_name                  = "<REDACTED>"
-minio_user1_password              = "<REDACTED>"
-minio_user1_policy                = "<REDACTED>"
-minio_user1_secretKey             = "<REDACTED>"
-minio_user1_accessKey             = "<REDACTED>"
+# minio_ingress_domains_prd         = "<REDACTED>"
+# minio_console_ingress_domains_prd = "<REDACTED>"
+# minio_env_prd                     = "<REDACTED>"
+# minio_rootUser                    = "<REDACTED>"
+# minio_rootPassword                = "<REDACTED>"
+# minio_user1_name                  = "<REDACTED>"
+# minio_user1_password              = "<REDACTED>"
+# minio_user1_policy                = "<REDACTED>"
+# minio_user1_secretKey             = "<REDACTED>"
+# minio_user1_accessKey             = "<REDACTED>"
 
 ## Hassio
-hassio_domain     = "<REDACTED>"
-hassio_ip_address = "<REDACTED>"
-hassio_env        = "<REDACTED>"
+# hassio_domain     = "<REDACTED>"
+# hassio_ip_address = "<REDACTED>"
+# hassio_env        = "<REDACTED>"
 
 ## Nextcloud
-nextcloud_admin_password            = "<REDACTED>"
-nextcloud_admin_username            = "<REDACTED>"
-nextcloud_mail_domain               = "<REDACTED>"
-nextcloud_postgresql_database       = "<REDACTED>"
-nextcloud_postgresql_admin_password = "<REDACTED>"
-nextcloud_postgresql_user_password  = "<REDACTED>"
-nextcloud_postgresql_username       = "<REDACTED>"
-nextcloud_prd_domain                = "<REDACTED>"
-nextcloud_prd_env                   = "<REDACTED>"
-nextcloud_prd_ip_address            = "<REDACTED>"
-nextcloud_prd_mail_fromaddress      = "<REDACTED>"
-nextcloud_proxies                   = "<REDACTED>"
-nextcloud_redis_password            = "<REDACTED>"
-nextcloud_smtp_host                 = "<REDACTED>"
-nextcloud_smtp_password             = "<REDACTED>"
-nextcloud_smtp_username             = "<REDACTED>"
-nextcloud_stg_domain                = "<REDACTED>"
-nextcloud_stg_env                   = "<REDACTED>"
-nextcloud_stg_ip_address            = "<REDACTED>"
-nextcloud_stg_mail_fromaddress      = "<REDACTED>"
+# nextcloud_admin_password            = "<REDACTED>"
+# nextcloud_admin_username            = "<REDACTED>"
+# nextcloud_mail_domain               = "<REDACTED>"
+# nextcloud_postgresql_database       = "<REDACTED>"
+# nextcloud_postgresql_admin_password = "<REDACTED>"
+# nextcloud_postgresql_user_password  = "<REDACTED>"
+# nextcloud_postgresql_username       = "<REDACTED>"
+# nextcloud_prd_domain                = "<REDACTED>"
+# nextcloud_prd_env                   = "<REDACTED>"
+# nextcloud_prd_ip_address            = "<REDACTED>"
+# nextcloud_prd_mail_fromaddress      = "<REDACTED>"
+# nextcloud_proxies                   = "<REDACTED>"
+# nextcloud_redis_password            = "<REDACTED>"
+# nextcloud_smtp_host                 = "<REDACTED>"
+# nextcloud_smtp_password             = "<REDACTED>"
+# nextcloud_smtp_username             = "<REDACTED>"
+# nextcloud_stg_domain                = "<REDACTED>"
+# nextcloud_stg_env                   = "<REDACTED>"
+# nextcloud_stg_ip_address            = "<REDACTED>"
+# nextcloud_stg_mail_fromaddress      = "<REDACTED>"
 
 ## rsync
-rsync_dst_folder_path = "<REDACTED>"
-rsync_dst_ip_address  = "<REDACTED>"
-rsync_username        = "<REDACTED>"
-rsync_src_folder_path = "<REDACTED>"
+# rsync_dst_folder_path = "<REDACTED>"
+# rsync_dst_ip_address  = "<REDACTED>"
+# rsync_username        = "<REDACTED>"
+# rsync_src_folder_path = "<REDACTED>"
