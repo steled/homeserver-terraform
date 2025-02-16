@@ -1,5 +1,5 @@
 module "apprise" {
-  source = "git@github.com:steled/terraformmodules.git//apprise?ref=v0.14"
+  source = "git@github.com:steled/terraformmodules.git//apprise?ref=v0.15"
   # source = "../terraformmodules/apprise/"
 
   ssh_user = var.server.user
