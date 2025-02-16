@@ -1,5 +1,5 @@
 module "hashicorp_vault" {
-  source = "git@github.com:steled/terraformmodules.git//hashicorp-vault?ref=v0.8"
+  source = "git@github.com:steled/terraformmodules.git//hashicorp-vault?ref=v0.15"
   # source = "../terraformmodules/hashicorp-vault/"
 
   ssh_user = var.server.user
