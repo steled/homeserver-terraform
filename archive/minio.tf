@@ -1,5 +1,5 @@
 module "minio" {
-  source = "git@github.com:steled/terraformmodules.git//minio?ref=v0.14"
+  source = "git@github.com:steled/terraformmodules.git//minio?ref=v0.15"
   # source = "../terraformmodules/minio/"
 
   # renovate: datasource=helm depName=minio registryUrl=https://charts.min.io/
