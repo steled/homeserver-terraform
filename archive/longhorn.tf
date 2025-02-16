@@ -1,5 +1,5 @@
 module "longhorn" {
-  source = "git@github.com:steled/terraformmodules.git//longhorn?ref=v0.14"
+  source = "git@github.com:steled/terraformmodules.git//longhorn?ref=v0.15"
   # source = "../terraformmodules/longhorn/"
 
   # renovate: datasource=github-tags depName=longhorn packageName=longhorn/longhorn
